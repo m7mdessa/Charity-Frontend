@@ -25,9 +25,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/adminAssets/assets/css/style.css",
+              "src/assets/adminAssets/assets/css/vendors.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/adminAssets/assets/js/vendors.js",
+              "src/assets/adminAssets/assets/js/app.js"
+            ]
           },
           "configurations": {
             "production": {

@@ -19,8 +19,6 @@ const routes: Routes = [
 
   { path:'contact', component:ContactComponent},
 
-  { path:'',  component:HomeComponent},
-
   { path:'about',component:AboutComponent},
 ];
 @NgModule({

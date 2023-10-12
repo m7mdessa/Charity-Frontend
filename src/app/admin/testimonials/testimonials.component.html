@@ -1,1 +1,80 @@
-<p>testimonials works!</p>
+<div id="wrapper">
+    <app-sidebar></app-sidebar>
+  
+    <div id="content-wrapper" class="d-flex flex-column">
+  
+        <app-nav></app-nav>
+        <div class="container-fluid">
+  
+      
+      <div class="block-header">
+          <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                  <h2>Testimonials List</h2>
+                  <ul class="breadcrumb">
+                      <li class="breadcrumb-item"><a ><i class="zmdi zmdi-home"></i> Admin</a></li>
+                      <li class="breadcrumb-item">Testimonials</li>
+                    </ul>
+              </div>
+            
+          </div>
+        
+      </div>
+    
+      <br>
+      
+      <table class="table table-hover product_item_list c_table theme-color mb-0" #reportTable>
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Testimonial </th>
+                <th>Image</th>
+                <th>Date </th>
+                
+
+            </tr>
+        </thead>
+
+        <tbody>
+            
+                <tr *ngFor="let testimonial of testimonials">
+                    <td>{{testimonial.username}}</td>
+                    <td>{{testimonial.testimonial}}</td>
+                    <td>
+                        <img src="../../assets/img/{{testimonial.image }}" width="70" alt="Charity img">
+                    </td>
+ 
+           <!-- <div class="action-buttons">
+              <ng-container *ngIf="testimonial.status === 'Pending'; ">
+                <button mat-icon-button (click)="acceptTestimonial(testimonial)">
+                  <mat-icon>check_circle</mat-icon>
+                </button>
+                <button mat-icon-button (click)="rejectTestimonial(testimonial)">
+                  <mat-icon>cancel</mat-icon>
+                </button>
+              </ng-container>
+            </div>
+            --> 
+            <td>{{testimonial.createddate}}</td>
+
+                </tr>
+        </tbody>
+   
+      
+    </table>
+      
+   
+    
+      <ng-template #callDeleteDailog>
+        <div style="padding:15px">
+    <h2>Are you sure you want to delete this user?</h2>
+    <button class="btn btn-primary m-1"   mat-dialog-close="yes">Yes</button>
+    <button class="btn btn-danger m-1"  mat-dialog-close="no">No</button> 
+    </div>
+    </ng-template>  
+          
+  
+        </div>
+    </div>
+  </div>
+  

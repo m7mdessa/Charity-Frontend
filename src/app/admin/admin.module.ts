@@ -13,6 +13,7 @@ import { CategoriesComponent } from './categories/categories.component';
 import { DonationsComponent } from './donations/donations.component';
 import { TestimonialsComponent } from './testimonials/testimonials.component';
 import { ContactsComponent } from './contacts/contacts.component';
+import { NavComponent } from './nav/nav.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ContactsComponent } from './contacts/contacts.component';
     CategoriesComponent,
     DonationsComponent,
     TestimonialsComponent,
-    ContactsComponent
+    ContactsComponent,
+    NavComponent
   ],
   imports: [
     CommonModule,

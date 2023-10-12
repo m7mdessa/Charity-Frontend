@@ -1,1 +1,141 @@
-<p>login works!</p>
+<div class="d-flex align-items-center" style="min-height: 100vh;">
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto account-column" style="max-width: 400px;">
+                <div class="account-brand p-4 text-center mb-1">
+                    <a class="navbar-brand" href="/" alt="Login to your ABP Account | ABP.IO" aria-label="Goto Login to your ABP Account | ABP.IO"></a>
+
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title d-inline-block">Login</h2>
+                            <nav class="navbar navbar-expand p-0 pt-1 float-end">
+                                <ul class="navbar-nav ms-auto toolbar-nav">
+                                    <li class="nav-item">
+                                            <div class="dropdown">
+    <a class="btn dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <span class="current-language-name">English</span>
+    </a>
+
+    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=ar&amp;uiCulture=ar&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                العربية
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=cs&amp;uiCulture=cs&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                Čeština
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=fi&amp;uiCulture=fi&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                Finnish
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=fr&amp;uiCulture=fr&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                Français
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=sk&amp;uiCulture=sk&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                Slovak
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=hi&amp;uiCulture=hi&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                Hindi
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=it&amp;uiCulture=it&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                Italiano
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=tr&amp;uiCulture=tr&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                Türkçe
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=pt-BR&amp;uiCulture=pt-BR&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                Português
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=zh-Hans&amp;uiCulture=zh-Hans&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                简体中文
+            </a>
+            <a class="dropdown-item" href="/Abp/Languages/Switch?culture=zh-Hant&amp;uiCulture=zh-Hant&amp;returnUrl=%2FAccount%2FLogin%3FReturnUrl%3D%252Fconnect%252Fauthorize%253Fclient_id%253Dcommunity-web-client%2526redirect_uri%253Dhttps%25253A%25252F%25252Fcommunity.abp.io%25252Fsignin-oidc%2526response_type%253Dcode%252520id_token%2526scope%253Dopenid%252520profile%252520roles%252520email%252520phone%252520abpio%2526response_mode%253Dform_post%2526nonce%253D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%2526state%253DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%2526x-client-SKU%253DID_NET8_0%2526x-client-ver%253D7.0.0.0">
+                <span class="me-2"></span>
+                繁体中文
+            </a>
+    </div>
+</div>
+
+                                    </li>
+                                </ul>
+                            </nav>
+                    </div>
+
+                    <div class="card-body">
+                        
+                        
+
+
+<div class="account-module-form">
+
+    <h5 class="mb-2">Not a member yet? <a class="text-decoration-none" href="/Account/Register?returnUrl=%2Fconnect%2Fauthorize%3Fclient_id%3Dcommunity-web-client%26redirect_uri%3Dhttps%253A%252F%252Fcommunity.abp.io%252Fsignin-oidc%26response_type%3Dcode%2520id_token%26scope%3Dopenid%2520profile%2520roles%2520email%2520phone%2520abpio%26response_mode%3Dform_post%26nonce%3D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%26state%3DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.0.0.0">Register</a></h5>
+
+    <form method="post" novalidate="novalidate" data-gtm-form-interact-id="0">
+        <div>
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control input-validation-error" placeholder="name@example.com" data-val="true" data-val-length="The field User name or email address must be a string with a maximum length of 256." data-val-length-max="256" data-val-required="The User name or email address field is required." id="LoginInput_UserNameOrEmailAddress" maxlength="256" name="LoginInput.UserNameOrEmailAddress" value="" aria-describedby="LoginInput_UserNameOrEmailAddress-error" aria-invalid="true">
+                <label for="LoginInput_UserNameOrEmailAddress">User name or email address</label>
+            </div>
+
+            <div class="form-floating mb-2">
+                <input id="password-input" type="password" class="form-control input-validation-error" placeholder="Password" data-val="true" data-val-length="The field Password must be a string with a maximum length of 128." data-val-length-max="128" data-val-required="The Password field is required." maxlength="128" name="LoginInput.Password" aria-describedby="password-input-error" aria-invalid="true">
+                <label for="LoginInput_Password">Password</label>
+                <i id="PasswordVisibilityButton" class="bi bi-eye-slash show-pass-icon" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" aria-label="Show password" data-bs-original-title="Show password"></i>
+                <i id="capslockicon" class="bi bi-capslock caps-lock-icon" style="display: none;" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-html="true" aria-label="<i class='bi bi-exclamation-circle'></i> Caps lock on!" data-bs-original-title="<i class='bi bi-exclamation-circle'></i> Caps lock on!"></i>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-switch ps-2">
+                    <div class="mb-2 custom-checkbox custom-control form-check"><input class="mb-4 form-check-input valid" type="checkbox" data-val="true" data-val-required="The Remember me field is required." id="LoginInput_RememberMe" name="LoginInput.RememberMe" value="true" aria-describedby="LoginInput.RememberMe-error" data-gtm-form-interact-field-id="0"><label class="form-check-label" for="LoginInput_RememberMe">Remember me</label></div>
+                </div>
+            </div>
+            <div class="text-end col">
+                <a href="/Account/ForgotPassword?returnUrl=%2Fconnect%2Fauthorize%3Fclient_id%3Dcommunity-web-client%26redirect_uri%3Dhttps%253A%252F%252Fcommunity.abp.io%252Fsignin-oidc%26response_type%3Dcode%2520id_token%26scope%3Dopenid%2520profile%2520roles%2520email%2520phone%2520abpio%26response_mode%3Dform_post%26nonce%3D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%26state%3DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.0.0.0">Forgot password?</a>
+            </div>
+        </div>
+
+
+        <div class="d-grid gap-2">
+            <button type="submit" class="mb-3 btn btn-primary" name="Action" value="Login" data-busy-text="Processing...">
+                <i class="bi bi-box-arrow-in-right me-1"></i>
+                Login
+            </button>
+        </div>
+
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8KhVN67WFEhFqv9GBjcJb_a06zT3KUXG9nngS56sDEYWUHLitB1Xnh3LiBUaKJ6-IhiRTiO1StzCawliWRKWXQNoZmJ9cklGIgrDMhdaSJStFnOVqu_ZuOL6jaQUqlz4Y4hLifHamQGK4IODkcCRPAs"><input name="LoginInput.RememberMe" type="hidden" value="false"></form>
+
+    <hr>
+Or sign in with        <br>
+    <form method="post" action="/Account/Login?returnUrl=%2Fconnect%2Fauthorize%3Fclient_id%3Dcommunity-web-client%26redirect_uri%3Dhttps%253A%252F%252Fcommunity.abp.io%252Fsignin-oidc%26response_type%3Dcode%2520id_token%26scope%3Dopenid%2520profile%2520roles%2520email%2520phone%2520abpio%26response_mode%3Dform_post%26nonce%3D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%26state%3DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.0.0.0&amp;handler=ExternalLogin">
+            <button type="submit" class="mt-2 me-2 btn btn-outline-primary btn-sm" name="provider" value="Google" data-busy-text="Processing...">
+                    <i class="fa fa-google"></i>
+                <span>Google</span>
+            </button>
+            <button type="submit" class="mt-2 me-2 btn btn-outline-primary btn-sm" name="provider" value="GitHub" data-busy-text="Processing...">
+                    <i class="fa fa-github"></i>
+                <span>GitHub</span>
+            </button>
+            <button type="submit" class="mt-2 me-2 btn btn-outline-primary btn-sm" name="provider" value="Twitter" data-busy-text="Processing...">
+                    <i class="fa fa-twitter"></i>
+                <span>Twitter</span>
+            </button>
+    <input name="__RequestVerificationToken" type="hidden" value="CfDJ8KhVN67WFEhFqv9GBjcJb_a06zT3KUXG9nngS56sDEYWUHLitB1Xnh3LiBUaKJ6-IhiRTiO1StzCawliWRKWXQNoZmJ9cklGIgrDMhdaSJStFnOVqu_ZuOL6jaQUqlz4Y4hLifHamQGK4IODkcCRPAs"></form>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

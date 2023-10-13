@@ -1,0 +1,21 @@
+/* CSS to style the sidebar */
+.sidebar {
+    width: 250px; /* Set the desired width */
+    padding: 20px;
+    background-color: #f1f1f1; /* Background color */
+    position: fixed; /* Make it sticky if needed */
+    top: 0;
+    left: 0;
+    height: 100%; /* Fill the full height of the viewport */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds height */
+  }
+  
+  .category-link {
+    text-decoration: none; /* Remove underline from links */
+    color: #333;
+    margin: 8px 0;
+    display: block;
+  }
+  
+  /* Add more styles as needed */
+  

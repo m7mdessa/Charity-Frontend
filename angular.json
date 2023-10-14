@@ -32,7 +32,9 @@
               "src/assets/userAssets/css/templatemo-kind-heart-charity.css",
               "node_modules/swiper/swiper-bundle.min.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/aos/dist/aos.css"
+              "node_modules/aos/dist/aos.css",
+              "src/assets/scss/argon.scss"
+           
             ],
             "scripts": [
               "node_modules/aos/dist/aos.js",

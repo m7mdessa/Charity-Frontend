@@ -1,74 +1,86 @@
-<div class="d-flex align-items-center" style="min-height: 100vh;">
-    <div class="container">
-        <div class="row">
-            <div class="col mx-auto account-column" style="max-width: 400px;">
-                <div class="account-brand p-4 text-center mb-1">
-                    <a class="navbar-brand" href="/" alt="Login to your ABP Account | ABP.IO" aria-label="Goto Login to your ABP Account | ABP.IO"></a>
-
+<main>
+    <section class="section section-shaped section-lg">
+      <div class="shape shape-style-1 bg-gradient-default">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="container pt-lg-md">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="card bg-secondary shadow border-0">
+              <div class="card-header bg-white pb-5">
+                <div class="text-muted text-center mb-3">
+                  <small>Sign in with</small>
                 </div>
-
-                <div class="card">
-               
-
-                    <div class="card-body">
-                        
-                        
-
-
-<div class="account-module-form">
-
-    <h5 class="mb-2">Not a member yet? <a class="text-decoration-none" href="/Account/Register?returnUrl=%2Fconnect%2Fauthorize%3Fclient_id%3Dcommunity-web-client%26redirect_uri%3Dhttps%253A%252F%252Fcommunity.abp.io%252Fsignin-oidc%26response_type%3Dcode%2520id_token%26scope%3Dopenid%2520profile%2520roles%2520email%2520phone%2520abpio%26response_mode%3Dform_post%26nonce%3D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%26state%3DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.0.0.0">Register</a></h5>
-
-    <form method="post" novalidate="novalidate" data-gtm-form-interact-id="0">
-        <div>
-            <mat-form-field appearance="outline">
-                <mat-label>Enter User Name</mat-label>
-                <input matInput type="text" placeholder="Enter user name" [formControl]="username">
-                <mat-error *ngIf="username.get('username')?.hasError('required')">User name is required</mat-error>
-                </mat-form-field>
-                <div class="form-field-spacer"></div>
-                
-              
-                <div class="form-field-spacer"></div>
-                
-                <mat-form-field appearance="outline">
-                <mat-label>Enter password</mat-label>
-                <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter password" [formControl]="password"readonly>
-                
-                </mat-form-field>
-                <mat-error *ngIf="password.hasError('required')">
-                    Password is <strong>required</strong>
-                </mat-error>
-                <mat-error *ngIf="password.hasError('minlength')">
-                    Password must be at least<strong>8 char </strong>
-                </mat-error>
-        </div>
-        <div class="row">
-            <div class="col">
-                <div class="form-switch ps-2">
-                    <div class="mb-2 custom-checkbox custom-control form-check"><input class="mb-4 form-check-input valid" type="checkbox" data-val="true" data-val-required="The Remember me field is required." id="LoginInput_RememberMe" name="LoginInput.RememberMe" value="true" aria-describedby="LoginInput.RememberMe-error" data-gtm-form-interact-field-id="0"><label class="form-check-label" for="LoginInput_RememberMe">Remember me</label></div>
+                <div class="btn-wrapper text-center">
+                  <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
+                    <span class="btn-inner--icon">
+                      <img src="./assets/img/icons/common/github.svg">
+                    </span>
+                    <span class="btn-inner--text">Github</span>
+                  </a>
+                  <a href="javascript:void(0)" class="btn btn-neutral btn-icon">
+                    <span class="btn-inner--icon">
+                      <img src="./assets/img/icons/common/google.svg">
+                    </span>
+                    <span class="btn-inner--text">Google</span>
+                  </a>
                 </div>
-            </div>
-            <div class="text-end col">
-                <a href="/Account/ForgotPassword?returnUrl=%2Fconnect%2Fauthorize%3Fclient_id%3Dcommunity-web-client%26redirect_uri%3Dhttps%253A%252F%252Fcommunity.abp.io%252Fsignin-oidc%26response_type%3Dcode%2520id_token%26scope%3Dopenid%2520profile%2520roles%2520email%2520phone%2520abpio%26response_mode%3Dform_post%26nonce%3D638326123478777109.YzAwMzA0NjgtNGY5Ni00NTc1LTg5NDEtZmFiMDQwZDc1NDgzY2E3YjQzZjgtNzc3Yi00OWM0LWJiM2ItMGVjMWY2YThkMzUz%26state%3DCfDJ8KhVN67WFEhFqv9GBjcJb_Z7WDmYWu6-kEtx_aizTjuCm1RZwZQl3h6Mfqbea31L6YEEPkuNEBFiRJoxOXsO9tHv5nOWssxatvGHs48Q1GUou_FYU2r_KDChDAe0l_j1xmvtP2ubax9MjLY39MEcvQiQnRYXPCMdofw_FLYsCVhPNoFlj_xlalOyGD3xL4FtUBz7ZN-iHc1Tf_c6HNEEbcygqJL9OWDXSVawzE22W_P0Zreh5Co1rIp8jdcG8GNkhEs7rqOJzmWTI12ep984zzttgo1zjm46BfO5IUDhoKx7hakPzzlqoWwC4nyDzCLIe7DxEGdOA4TPlCfVdYEwcwt0pgp7nj1UfMmIJtZnD_eO5TahjUTo8qCDeFj80kynJw%26x-client-SKU%3DID_NET8_0%26x-client-ver%3D7.0.0.0">Forgot password?</a>
-            </div>
-        </div>
-
-
-        <div class="d-grid gap-2">
-            <button type="submit" class="mb-3 btn btn-primary" name="Action" value="Login" data-busy-text="Processing...">
-                <i class="bi bi-box-arrow-in-right me-1"></i>
-                Login
-            </button>
-        </div>
-       
-
-    <hr>
-    </form>
-
+              </div>
+              <div class="card-body px-lg-5 py-lg-5">
+                <div class="text-center text-muted mb-4">
+                  <small>Or sign in with credentials</small>
+                </div>
+                <form role="form">
+                  <div class="form-group mb-3" [ngClass]="{'focused':focus===true}">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="User Name" type="text" [formControl]="username"(focus)="focus=true" (blur)="focus=false">
                     </div>
-                </div>
+                  </div>
+                  <div class="form-group" [ngClass]="{'focused':focus1===true}">
+                    <div class="input-group input-group-alternative">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                      </div>
+                      <input class="form-control" placeholder="Password" type="password" [formControl]="password"(focus)="focus1=true" (blur)="focus1=false">
+                    </div>
+                  </div>
+                  <div class="custom-control custom-control-alternative custom-checkbox">
+                    <input class="custom-control-input" id=" customCheckLogin" type="checkbox">
+                    <label class="custom-control-label" for=" customCheckLogin">
+                      <span>Remember me</span>
+                    </label>
+                  </div>
+                  <div class="text-center">
+                    <button type="button" class="btn btn-primary my-4">Sign in</button>
+                  </div>
+                </form>
+              </div>
             </div>
+            <div class="row mt-3">
+              <div class="col-6">
+                <a href="javascript:void(0)" class="text-light">
+                  <small>Forgot password?</small>
+                </a>
+              </div>
+              <div class="col-6 text-right">
+                <a href="javascript:void(0)" class="text-light">
+                  <small>Create new account</small>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
+    </section>
+  </main>
+  

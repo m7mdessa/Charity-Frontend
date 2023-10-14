@@ -1,100 +1,93 @@
-
-  .card {
-    border: 0;
-    background: #fff;
-    color: #000;
-    box-shadow: 0 0 30px rgba(8,20,73,.1);
-    border-radius: 4px;
-    margin-bottom: 24px;
+html,
+body {
+  height: 100%;
 }
-.card .card-header {
-    border-bottom: 0;
-    padding: 14.4px 24px;
-    background: 0 0;
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-height: 100vh;
+  background: #e2e2e2;
 }
-a {
-    color: #5472d4;
-    text-decoration: none;
+.app-header {
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
 }
-.card-header:first-child {
-    border-radius: 3px 3px 0 0;
+.login-wrapper {
+  height: 100%;
 }
-.h2{
-    font-family: Poppins,sans-serif;
-    font-weight: 400;
-    font-size: 50px;
-}.mb-2 {
-    margin-bottom: .5rem!important;
+.positronx {
+  text-decoration: none;
+  color: #ffffff;
 }
-
-.card-title {
-    margin: 0;
-    color: #000;
-    font-family: Poppins,sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-}.navbar {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: .5rem;
-    padding-bottom: .5rem;
-}.navbar-expand {
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-}.navbar-nav {
-    display: flex;
-    flex-direction: column;
-    padding-left: 0;
-    margin-bottom: 0;
-    list-style: none;
-}.card .card-body {
-    padding: 24px;
-}.card-body {
-    flex: 1 1 auto;
-    padding: 1rem 1rem;
-    color: #000;
-}.mb-2 {
-    margin-bottom: .5rem!important;
-}.form-floating>.form-control {
-    padding: 1rem .75rem;
-}.form-floating>.form-control, .form-floating>.form-select {
-    height: calc(3.5rem + 2px);
-    line-height: 1.25;
-}.form-floating>label {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    padding: 1rem .75rem;
-    pointer-events: none;
-    border: 1px solid transparent;
-    transform-origin: 0 0;
-    transition: opacity .1s ease-in-out,transform .1s ease-in-out;
-}label {
-    display: inline-block;
-}input[type="hidden" i] {
-    appearance: none;
-    background-color: initial;
-    cursor: default;
-    display: none !important;
-    padding: initial;
-    border: initial;
-    border-color: initial;
-    border-radius: initial;
-}.btn {
-    border-width: 2px;
-    border-radius: 4px;
-    padding: 5px 18px;
-    font-size: 1em;
-    box-shadow: 0 0 30px rgba(8,20,73,.1);
+.box {
+  position: relative;
+  top: 0;
+  opacity: 1;
+  float: left;
+  padding: 60px 50px 40px 50px;
+  width: 100%;
+  background: #fff;
+  border-radius: 10px;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  z-index: 5;
+  max-width: 330px;
 }
-.form-floating {
-    position: relative;
+.box.back {
+  transform: scale(.95);
+  -webkit-transform: scale(.95);
+  -ms-transform: scale(.95);
+  top: -20px;
+  opacity: .8;
+  z-index: -1;
 }
-form {
-    display: block;
-    margin-top: 0em;
+.box:before {
+  content: "";
+  width: 100%;
+  height: 30px;
+  border-radius: 10px;
+  position: absolute;
+  top: -10px;
+  background: rgba(255, 255, 255, .6);
+  left: 0;
+  transform: scale(.95);
+  -webkit-transform: scale(.95);
+  -ms-transform: scale(.95);
+  z-index: -1;
+}
+.login-wrapper .example-form {
+  min-width: 100%;
+  max-width: 300px;
+  width: 100%;
+}
+.login-wrapper .example-full-width,
+.login-wrapper .btn-block {
+  width: 100%;
+}
+.login-wrapper mat-card-header {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-weight: 700;
+}
+.login-wrapper mat-card-header mat-card-title {
+  font-size: 30px;
+  margin: 0;
+}
+.login-wrapper .mat-card {
+  padding: 40px 70px 50px;
+}
+.login-wrapper .mat-stroked-button {
+  border: 1px solid currentColor;
+  line-height: 54px;
+  background: #FFF7FA;
+}
+.login-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0.8375em 0;
 }

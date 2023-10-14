@@ -14,6 +14,8 @@ export class LoginComponent {
   constructor(public authService: AuthService,private router: Router) {
 
   }
+  focus: any;
+focus1: any;
   hide = true;
 
   username:FormControl = new FormControl('',[Validators.required]);

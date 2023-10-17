@@ -31,22 +31,12 @@ export class ProfileComponent implements OnInit {
     Aos.refresh();
     this.getProfile();
 
-    const user = localStorage.getItem('user');
-    if (user !== null) {
-
-      const userData = JSON.parse(user);
-    
-      var userId = userData.UserId;
-    
-    } else {
-      console.log('No user data found in local storage.');
-    }
-    this.updateForm.get('id')?.setValue(userId);
   }
 
 
   updateForm : FormGroup = new FormGroup({
-    id: new FormControl(''),
+    
+    id: new FormControl(),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
     confirmPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
 
@@ -65,6 +55,18 @@ export class ProfileComponent implements OnInit {
 
    
   updateUser() {
+    
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+
+      const userData = JSON.parse(user);
+    
+      var userId = userData.UserId;
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
+    this.updateForm.get('id')?.setValue(userId);
     this.user.updateUser(this.updateForm.value).subscribe(
       (responsee) => {
         console.log( this.updateForm.value);

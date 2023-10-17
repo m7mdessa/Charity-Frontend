@@ -22,66 +22,66 @@ export class UserService {
     return this.http.get<any>('https://localhost:7091/api/Donar/GetUserById/'+id);
   }
   updateCharity(charity: any): Observable<void> {
-    return this.http.put<void>('https://localhost:7091/api/User', charity);
+    return this.http.put<void>('https://localhost:7091/api/Donar', charity);
   }
   updateUser(user: any): Observable<void> {
-    return this.http.put<void>('https://localhost:7091/api/User/UpdateUser', user);
+    return this.http.put<void>('https://localhost:7091/api/Donar/UpdateUser', user);
   }
   getCharityByUserId(userId: any): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7091/api/User/getCharityByUserId/'+userId);
+    return this.http.get<any[]>('https://localhost:7091/api/Donar/getCharityByUserId/'+userId);
   }
 
  
  
   deleteCharityByUserId(id:number): Observable<any> {
-    return this.http.delete('https://localhost:7091/api/User/deleteCharityByUserId/'+id);
+    return this.http.delete('https://localhost:7091/api/Donar/deleteCharityByUserId/'+id);
   }
 
   addTestimonial(testimonial: any): Observable<void> {
-    return this.http.post<void>('https://localhost:7091/api/User/CreateTestimonial', testimonial);
+    return this.http.post<void>('https://localhost:7091/api/Donar/CreateTestimonial', testimonial);
   }
 
   getTestimonialByUserId(userId: any): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7091/api/User/GetTestimonialByUserId/'+userId);
+    return this.http.get<any[]>('https://localhost:7091/api/Donar/GetTestimonialByUserId/'+userId);
   }
 
   getIssueByUserId(userId: any): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7091/api/User/GetIssueByUserId/'+userId);
+    return this.http.get<any[]>('https://localhost:7091/api/Donar/GetIssueByUserId/'+userId);
   }
 
   addIssue(issue: any): Observable<void> {
-    return this.http.post<void>('https://localhost:7091/api/User/CreateIssue', issue);
+    return this.http.post<void>('https://localhost:7091/api/Donar/CreateIssue', issue);
   }
 
   getCharityByName(search: any): Observable<any[]> {
-    return this.http.post<any[]>('https://localhost:7091/api/User/GetCharityByName', search);
+    return this.http.post<any[]>('https://localhost:7091/api/Donar/GetCharityByName', search);
   }
 
   addCharity(charity: any): Observable<void> {
     charity.image = this.upload_Image;
 
-    return this.http.post<void>('https://localhost:7091/api/User/CreateCharity', charity);
+    return this.http.post<void>('https://localhost:7091/api/Donar/CreateCharity', charity);
   }
 
   updateCharityDetails(charity: any): Observable<void> {
-    return this.http.put<void>('https://localhost:7091/api/User/UpdateCharity', charity);
+    return this.http.put<void>('https://localhost:7091/api/Donar/UpdateCharity', charity);
   }
 
   payForCharity(userId: any, payment: any): Observable<void> {
-    return this.http.post<void>('https://localhost:7091/api/User/PayForCharity/' + userId, payment);
+    return this.http.post<void>('https://localhost:7091/api/Donar/PayForCharity/' + userId, payment);
   }
 
   donateForCharity(userId: any, charityId: any, payment: any): Observable<void> {
-    return this.http.post<void>('https://localhost:7091/api/User/DonateForCharity/' + userId + '/' + charityId, payment);
+    return this.http.post<void>('https://localhost:7091/api/Donar/DonateForCharity/' + userId + '/' + charityId, payment);
   }
 
   getDonationByUserId(userId: any): Observable<any>{
-    return this.http.get('https://localhost:7091/api/User/GetDonationByUserId/' + userId);
+    return this.http.get('https://localhost:7091/api/Donar/GetDonationByUserId/' + userId);
   }
 
  
   uploadAttachment(file:FormData){
-    this.http.post('https://localhost:7091/api/User/uploadImage' ,file).subscribe((resp:any)=>{
+    this.http.post('https://localhost:7091/api/Donar/uploadImage' ,file).subscribe((resp:any)=>{
     this.upload_Image = resp.image; 
     },err=>{
       console.log('Something went wrong !!');

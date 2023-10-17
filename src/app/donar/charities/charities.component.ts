@@ -25,12 +25,9 @@ export class CharitiesComponent implements OnInit {
   Charities: any[] = [];
   categories: any[] = [];
 
-  userTokenData: any;
-userId: any;
 totalPrice: number = 1000; // Replace 1000 with your actual total price
 currentPrice: number = 0;
 isLinear = false;
-  userI: any;
 
   constructor(private charitiesService: CharitiesService, private userService: UserService,private toastr: ToastrService,private categoriesService:CategoriesService,private dialog:MatDialog ) { }
   ngOnInit() {
@@ -41,17 +38,6 @@ isLinear = false;
 
     this.initMap();
     
-    this.userTokenData = this.userService.getUserTokenData();
-    if ( this.userTokenData ) {
-      this.userId =  this.userTokenData.UserId;
-      console.log('User ID in AnotherComponent:', this.userId);
-      this.getCharities();
-
-    } else {
-      console.log('User token data not available in AnotherComponent');
-    }
-    this.CreateForm.get('userid')?.setValue(this.userId);
-    this.payForm.get('userid')?.setValue(this.userId);
     }
   
   getCategories() {
@@ -137,10 +123,20 @@ isLinear = false;
   }
 
   payForCharity(){
-    console.log(this.payForm.value);
-    this.payForm.get('userid')?.setValue(this.userId);
+    const user = localStorage.getItem('user');
+    if (user !== null) {
 
-    this.userService.payForCharity(this.userId, this.payForm.value).subscribe((_res:any) => {
+      const userData = JSON.parse(user);
+    
+      var userId = userData.UserId;
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
+    console.log(this.payForm.value);
+    this.payForm.get('userid')?.setValue(userId);
+
+    this.userService.payForCharity(userId, this.payForm.value).subscribe((_res:any) => {
          console.log('Charity payed successfully!');
          this.toastr.success('Charity payed successfully.', 'Success');
          this.getCharities(); 
@@ -174,8 +170,18 @@ isLinear = false;
   }
 
   addCharity(){
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+
+      const userData = JSON.parse(user);
+    
+      var userId = userData.UserId;
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
     console.log(this.CreateForm.value);
-    this.CreateForm.get('userid')?.setValue(this.userId);
+    this.CreateForm.get('userid')?.setValue(userId);
 
     this.charitiesService.addCharity(this.CreateForm.value).subscribe((_res:any) => {
          console.log('Charity aded successfully!');

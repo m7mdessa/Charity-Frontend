@@ -8,6 +8,7 @@ import { TestimonialComponent } from './testimonial/testimonial.component';
 import { IssuesComponent } from './issues/issues.component';
 import { CharitiesComponent } from './charities/charities.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   imports: [
     CommonModule,
-    DonarRoutingModule
+    DonarRoutingModule,
+    SharedModule
   ]
 })
 export class DonarModule { }

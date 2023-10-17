@@ -1,1 +1,259 @@
-<p>charities works!</p>
+
+<app-navbar></app-navbar>
+<main class="profile-page py-5">
+    <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+      <section class="section">
+        <div class="container">
+          <div class="card card-profile shadow mt--300">
+            <div class="px-4">
+              <div class="row justify-content-center">
+                <div class="col-lg-2 order-lg-2">
+                  <div class="card-profile-image">
+                    <a href="javascript:void(0)">
+                      <img src="./assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                    </a>
+  
+                  </div>
+                  <br>
+                  <br>
+                  <br>
+                  <br> <br>
+                  <br> <br>
+                  <br>
+                  
+                </div>
+               
+                <div class="col-lg-9 order-lg-1">
+                  <div class="card-profile-stats d-flex ">
+                    <div class="card-profile-actions py-4 mt-lg-0">
+                      <a routerLink="/user/Donations" class="btn btn-sm btn-info mr-4">Donations</a>
+                      <a routerLink="/user/Issues" class="btn btn-sm btn-info mr-4">Issues</a>
+                      <a routerLink="/user/Testimonial" class="btn btn-sm btn-info mr-4">Testimonials</a>
+                      <a routerLink="/user/Profile" class="btn btn-sm btn-info mr-4">Profile</a>
+                      <a routerLink="/user/Charities" class="btn btn-sm btn-info mr-4">Charities</a>
+                      <a (click)="OpenDialogCharities()"class="btn btn-sm btn-info mr-4">Add Charity</a>
+
+                    </div>
+                  </div>
+                
+               <!--  <div id="map-container" style="height: 200px;"></div>  -->   
+
+               <div class="row">
+                <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" *ngFor="let Charity of Charities">
+                  <span class="badge"  (click)="openDeleteDailog(Charity.id)">     
+                       <mat-icon matBadge="15" matBadgeColor="warn">delete</mat-icon>
+                  </span>
+
+                  
+                  <div class="featured-block d-flex justify-content-center align-items-center">
+                    <a href="donate.html" class="d-block">
+                      <img src="../../assets/img/{{Charity.image }}" class="featured-block-image img-fluid" alt="">
+                      <p class="featured-block-text">{{Charity.charityname }}</p>
+                    </a>
+                  </div>
+               
+                </div>
+              </div>
+              
+  
+          
+                </div>
+                
+              </div>
+              <div class="text-center mt-5">
+                
+              </div>
+           
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+  <ng-template #callDeleteDailog>
+    <div style="padding:15px">
+<h2>Are you sure you want to delete this item?</h2>
+<button class="btn btn-primary m-1"   mat-dialog-close="yes">Yes</button>
+<button class="btn btn-danger m-1"  mat-dialog-close="no">No</button> 
+</div>
+</ng-template>
+  <ng-template #callCreateDialog>
+    <div class="mat-dialog-container">
+      <div class="dialog-header">
+        <h2>Add Charity </h2>
+     
+      </div>
+      <mat-stepper [linear]="isLinear" #stepper>
+        <mat-step [stepControl]="CreateForm">
+          <form [formGroup]="CreateForm">
+            <ng-template matStepLabel class="hh"> Charity Name</ng-template>
+            <div class="form-field-spacer"></div>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Charity Name</mat-label>
+              <input matInput type="text" placeholder="Enter Charity Name" formControlName="charityname" >
+            </mat-form-field> 
+            <div>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="CreateForm" label=" Address">
+            <div class="form-field-spacer"></div>
+          
+            <form [formGroup]="CreateForm">
+              <mat-form-field class="example-full-width">
+                <mat-label>Address</mat-label>
+                <input matInput type="text" placeholder="Enter Address" formControlName="address">
+              </mat-form-field>
+            </form>
+          
+            <!-- Use a unique ID for the map container -->
+            <div id="map-container" style="height: 300px;"></div>
+          
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </mat-step>
+          
+        <mat-step [stepControl]="CreateForm" label="Mission">
+          <div class="form-field-spacer"></div>
+
+          <form [formGroup]="CreateForm">
+            <mat-form-field class="example-full-width">
+              <mat-label>Mission</mat-label>
+              <textarea matInput type="text" placeholder="Enter Mission" formControlName="mission" ></textarea>
+
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        
+    
+        <mat-step [stepControl]="CreateForm" label=" Goal Price">
+          <div class="form-field-spacer"></div>
+
+          <form [formGroup]="CreateForm">
+            <mat-form-field>
+              <mat-label>Goal Price</mat-label>
+              <input matInput type="text" placeholder="Enter Goal Price" formControlName="goalPrice" >
+
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+        <mat-step [stepControl]="CreateForm" label=" Min Price">
+            <div class="form-field-spacer"></div>
+  
+            <form [formGroup]="CreateForm">
+              <mat-form-field>
+                <mat-label>Goal Price</mat-label>
+                <input matInput type="text" placeholder="Enter Min Price" formControlName="minPrice" >
+  
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+        <mat-step [stepControl]="CreateForm" label="Select Category">
+          <div class="form-field-spacer"></div>
+
+          <form [formGroup]="CreateForm">
+            <mat-form-field>
+              <mat-label>Select Category</mat-label>
+          <mat-select formControlName="categoryid" required>
+            <mat-option *ngFor="let category of categories" [value]="category.id">
+              {{ category.categoryname }}
+            </mat-option>
+          </mat-select>
+
+            </mat-form-field>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step><mat-step [stepControl]="CreateForm" label="Image">
+          <div class="form-field-spacer"></div>
+
+          <form [formGroup]="CreateForm">
+            <div>
+            
+              <input type="file"  formControlName="image"    #file   (change)="UploadImage(file.files)">
+            </div>
+            <div>
+              <button mat-button matStepperPrevious>Back</button>
+              <button mat-button matStepperNext>Next</button>
+            </div>
+          </form>
+        </mat-step>
+   
+        <mat-step>
+          <ng-template matStepLabel>Done</ng-template>
+          <p>You are now done.</p>
+          <div>
+            <button mat-button matStepperPrevious>Back</button>
+            <button mat-button (click)="addCharity()"[disabled]="!CreateForm.valid">Add</button>
+          </div>
+        </mat-step>
+      </mat-stepper>
+ 
+    </div>
+  </ng-template>
+
+
+  
+<ng-template #callPayDialog>
+    <div class="mat-dialog-container">
+      <div class="dialog-header">
+        <h2>Pay For Charity </h2>
+
+      </div>
+      <form [formGroup]="payForm"class="example-container" >
+
+     
+        <mat-form-field appearance="outline" >
+          <mat-label>Cardholder Name</mat-label>
+          <input matInput placeholder="Cardholder Name" formControlName="cardholdernumber">
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+          <mat-label>Card Number</mat-label>
+          <input matInput placeholder="Card Number" formControlName="cardnumber">
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+          <mat-label>Expiration Date</mat-label>
+          <input matInput placeholder="Expiration Date" formControlName="expirationdate">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>CVV</mat-label>
+          <input matInput placeholder="CVV" formControlName="cvv">
+        </mat-form-field>
+        <button mat-button color="primary" type="submit" (click)="payForCharity()"[disabled]="!payForm.valid">Pay for Charity</button>
+      </form>
+    </div>
+  </ng-template>
+<app-footer></app-footer>

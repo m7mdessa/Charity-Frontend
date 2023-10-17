@@ -19,22 +19,22 @@ export class UsersService {
   }
 
   getUsers(): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7084/api/Users');
+    return this.http.get<any[]>('https://localhost:7091/api/Users');
   }
 
   getUser(id: any): Observable<any> {
-    return this.http.get<any>('https://localhost:7084/api/Users/GetUserById/'+id);
+    return this.http.get<any>('https://localhost:7091/api/Users/GetUserById/'+id);
   }
 
   addUser(user: any): Observable<any> {
-    return this.http.post<any>('https://localhost:7084/api/Users/addUser/', user);
+    return this.http.post<any>('https://localhost:7091/api/Users/addUser/', user);
   }
 
   updateUser(user: any): Observable<any> {
-    return this.http.put('https://localhost:7084/api/Users/',user);
+    return this.http.put('https://localhost:7091/api/Users/',user);
   }
 
   deleteUser(id:number): Observable<any> {
-    return this.http.delete('https://localhost:7084/api/Users/Delete/'+id);
+    return this.http.delete('https://localhost:7091/api/Users/Delete/'+id);
   }
 }

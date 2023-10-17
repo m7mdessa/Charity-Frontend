@@ -1,0 +1,90 @@
+<div class="login-container">
+    <mat-card class="login-card">
+        <mat-card-header>
+            <div class="header-logo">
+                <img src="../../assets/img/logo.png" alt="">
+            </div>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form class="form-contact contact_form"  [formGroup]="registerForm">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input class="form-control" name="username" formControlName="username" type="text"
+                                placeholder="Enter User name">
+                                <div *ngIf="registerForm.get('username')?.invalid && (registerForm.get('username')?.dirty || registerForm.get('username')?.touched)"
+                                class="error-message">
+                                <div *ngIf="registerForm.get('username')?.errors?.['required'] as requiredError"class="text-danger">
+                                   user name is required
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input class="form-control" name="email" formControlName="email" type="email"
+                                placeholder="Enter Email">
+                            <div *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched)"
+                                class="error-message">
+                                <div *ngIf="registerForm.get('email')?.errors?.['required'] as requiredError"class="text-danger">
+                                    email is required
+
+                              </div>
+                       
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input class="form-control" name="password" formControlName="password" type="password"
+                                placeholder="Enter Password"(blur)="matchError()">
+                                <div *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched)"
+                                class="error-message">
+                                <div *ngIf="registerForm.get('password')?.errors?.['required'] as requiredError"class="text-danger">
+                                    passsword is required
+                                </div>
+                                <div *ngIf="registerForm.get('password')?.errors?.['minlength'] as minlengthError"class="text-danger">
+                                    Password should be mor than 8 digit.
+                                </div>
+                               
+     
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input class="form-control" name="password" formControlName="repeatPassword" type="password"
+                                placeholder="Enter confierm Password"(blur)="matchError()">
+                                <div *ngIf="registerForm.get('repeatPassword')?.invalid && (registerForm.get('repeatPassword')?.dirty || registerForm.get('repeatPassword')?.touched)"
+                                class="error-message">
+                                <div *ngIf="registerForm.get('repeatPassword')?.errors?.['required'] as requiredError"class="text-danger">
+                                    passsword is required
+                                </div>
+                                <div *ngIf="registerForm.get('repeatPassword')?.errors?.['minlength'] as minlengthError"class="text-danger">
+                                    Password should be mor than 8 digit.
+                                </div>
+                          
+                                <div *ngIf="registerForm.get('repeatPassword')?.hasError('misMatch')"
+                                class="error-message"class="text-danger">Passwords do not match</div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <button type="submit" class="button button-contactForm boxed-btn" (click)="register()">Sign Up</button>
+                </div>
+            </form>
+            <div class="links">
+                <div class="row">
+                    <div class="col-6">
+                        <a (click)="toLogin()" class="link">Do you have an account?</a>
+                    </div>
+                </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</div>

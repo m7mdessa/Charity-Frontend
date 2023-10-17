@@ -1,1 +1,170 @@
-<p>testimonial works!</p>
+
+
+<app-navbar></app-navbar>
+<main class="profile-page py-5">
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+    <section class="section ">
+      <div class="container">
+        <div class="card card-profile shadow mt--300">
+          <div class="px-4">
+            <div class="row justify-content-center">
+              <div class="col-lg-3 order-lg-2">
+                <div class="card-profile-image">
+                  <a href="javascript:void(0)">
+                    <img src="./assets/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                  </a>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+                <div class="card-profile-actions py-4 mt-lg-0">
+                  <a routerLink="/user/Testimonial" class="btn btn-sm btn-info mr-4">Testimonials</a>
+                  <a href="javascript:void(0)" class="btn btn-sm btn-default float-right"(click)="OpenDialogTestimonial()">Add Testimonial</a>
+                </div>
+              </div>
+              <div class="col-lg-4 order-lg-1">
+                <div class="card-profile-stats d-flex justify-content-center">
+                  <div>
+                    <span class="heading">22</span>
+                    <span class="description">Friends</span>
+                  </div>
+                  <div>
+                    <span class="heading">10</span>
+                    <span class="description">Photos</span>
+                  </div>
+                  <div>
+                    <span class="heading">89</span>
+                    <span class="description">Comments</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-5">
+              <h3>Jessica Jones
+                <span class="font-weight-light">, 27</span>
+              </h3>
+              <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>Bucharest, Romania</div>
+              <div class="h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Solution Manager - Creative Tim Officer</div>
+              <div><i class="ni education_hat mr-2"></i>University of Computer Science</div>
+            </div>
+            <div class="container">
+                <div class="row">
+    
+                    <div class="col-lg-8 col-12 mx-auto">
+                        <h2 class="mb-lg-3">Happy customers</h2>
+    
+                        <div id="testimonial-carousel" class="carousel carousel-fade slide" data-bs-ride="carousel">
+    
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="carousel-caption">
+                                        <h4 class="carousel-title">Lorem Ipsum dolor sit amet, consectetur adipsicing
+                                            kengan omeg kohm tokito charity theme</h4>
+    
+                                        <small class="carousel-name"><span class="carousel-name-title">Maria</span>,
+                                            Boss</small>
+                                    </div>
+                                </div>
+    
+                                <div class="carousel-item">
+                                    <div class="carousel-caption">
+                                        <h4 class="carousel-title">Sed leo nisl, posuere at molestie ac, suscipit auctor
+                                            mauris quis metus tempor orci</h4>
+    
+                                        <small class="carousel-name"><span class="carousel-name-title">Thomas</span>,
+                                            Partner</small>
+                                    </div>
+                                </div>
+    
+                                <div class="carousel-item">
+                                    <div class="carousel-caption">
+                                        <h4 class="carousel-title">Lorem Ipsum dolor sit amet, consectetur adipsicing
+                                            kengan omeg kohm tokito charity theme</h4>
+    
+                                        <small class="carousel-name"><span class="carousel-name-title">Jane</span>,
+                                            Advisor</small>
+                                    </div>
+                                </div>
+    
+                                <div class="carousel-item">
+                                    <div class="carousel-caption">
+                                        <h4 class="carousel-title">Sed leo nisl, posuere at molestie ac, suscipit auctor
+                                            mauris quis metus tempor orci</h4>
+    
+                                        <small class="carousel-name"><span class="carousel-name-title">Bob</span>,
+                                            Entreprenuer</small>
+                                    </div>
+                                </div>
+    
+                                <ol class="carousel-indicators">
+                                    <li data-bs-target="#testimonial-carousel" data-bs-slide-to="0" class="active">
+                                        <img src="assets/userAssets/images/avatar/portrait-beautiful-young-woman-standing-grey-wall.jpg"
+                                            class="img-fluid rounded-circle avatar-image" alt="avatar">
+                                    </li>
+    
+                                    <li data-bs-target="#testimonial-carousel" data-bs-slide-to="1" class="">
+                                        <img src="assets/userAssets/images/avatar/portrait-young-redhead-bearded-male.jpg"
+                                            class="img-fluid rounded-circle avatar-image" alt="avatar">
+                                    </li>
+    
+                                    <li data-bs-target="#testimonial-carousel" data-bs-slide-to="2" class="">
+                                        <img src="assets/userAssets/images/avatar/pretty-blonde-woman-wearing-white-t-shirt.jpg"
+                                            class="img-fluid rounded-circle avatar-image" alt="avatar">
+                                    </li>
+    
+                                    <li data-bs-target="#testimonial-carousel" data-bs-slide-to="3" class="">
+                                        <img src="assets/userAssets/images/avatar/studio-portrait-emotional-happy-funny.jpg"
+                                            class="img-fluid rounded-circle avatar-image" alt="avatar">
+                                    </li>
+                                </ol>
+    
+                            </div>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <ng-template #callCreateDialog>
+    <div class="mat-dialog-container">
+      <div class="dialog-header">
+        <h2>Add a Testimonial</h2>
+     
+      </div>
+      <form class="example-container" [formGroup]="CreateForm" >
+        <input  type="hidden" formControlName="userid" name="userid">
+  
+        <mat-form-field appearance="fill">
+          <mat-label>User Name</mat-label>
+          <input matInput type="text" placeholder="Enter user name" formControlName="username" required>
+        </mat-form-field>
+  
+        <mat-form-field appearance="fill">
+          <mat-label>Testimonial</mat-label>
+          <textarea matInput rows="4" placeholder="Enter testimonial" formControlName="testimonial"required></textarea>
+        </mat-form-field>
+  
+        <button mat-raised-button color="primary" (click)="addTestimonial()" >Add Testimonial</button>
+      </form>
+    </div>
+  </ng-template>
+  
+  <app-footer></app-footer>

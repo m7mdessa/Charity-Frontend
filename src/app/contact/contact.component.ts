@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-
+  focus: any;
+  focus1: any;
 }

@@ -20,7 +20,7 @@ export class AuthService {
 
   Register(Register: any): Observable<any>{
 
-    return  this.http.post('https://localhost:7084/api/Auth/Register/',Register);
+    return  this.http.post('https://localhost:7091/api/Auth/Register/',Register);
  
   }
 
@@ -41,7 +41,7 @@ export class AuthService {
       headers: new HttpHeaders(headerDict)
     }
     
-    this.http.post('https://localhost:7084/api/Auth/Login/', Login, requestOptions).subscribe((res: any) => {
+    this.http.post('https://localhost:7091/api/Auth/Login/', Login, requestOptions).subscribe((res: any) => {
      
       const responce = { token: res.toString() }
       localStorage.setItem('token', responce.token);
@@ -58,7 +58,7 @@ export class AuthService {
   
       if (data.Role == "1") {
         this.toastr.success('Welcome On Admin Dashboard');
-        this.router.navigate(['admin/dashboard']);
+        this.router.navigate(['admin']);
       } else if (data.Role == "2") {
         this.toastr.success('Welcome On User Dashboard');
         this.router.navigate(['user/Profile']);
@@ -80,13 +80,13 @@ export class AuthService {
 
   Forgotpassword(Forgotpassword: any): Observable<any>{
 
-    return  this.http.post('https://localhost:7084/api/Auth/Forgotpassword/',Forgotpassword);
+    return  this.http.post('https://localhost:7091/api/Auth/Forgotpassword/',Forgotpassword);
  
   }
 
   Resetpassword(Resetpassword: any): Observable<any>{
 
-    return  this.http.post('https://localhost:7084/api/Auth/Resetpassword/',Resetpassword);
+    return  this.http.post('https://localhost:7091/api/Auth/Resetpassword/',Resetpassword);
  
   }
 

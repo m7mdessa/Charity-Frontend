@@ -1,0 +1,9 @@
+.user-info {
+    display: flex;        /* Use flexbox to align items horizontally */
+    align-items: center;  /* Center vertically within the container */
+    margin-top: 10px;     /* Adjust margin as needed */
+  }
+  
+  .user-info span {
+    margin-left: 10px;    /* Add some spacing between the image and user name */
+  }

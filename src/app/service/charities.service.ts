@@ -14,32 +14,34 @@ export class CharitiesService {
   constructor(private http: HttpClient) { }
 
   getCharities(): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7084/api/Charity');
+    return this.http.get<any[]>('https://localhost:7091/api/Charity');
   }
 
   getCharity(id: number): Observable<any> {
-    return this.http.get<any>('https://localhost:7084/api/Charity/'+id);
+    return this.http.get<any>('https://localhost:7091/api/Charity/'+id);
   }
 
-
+  getCharityByUserId(userId: any): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:7091/api/Charity/getCharityByUserId/'+userId);
+  }
   addCharity(Charity: any): Observable<any>{
     Charity.image = this.upload_Image;
 
-    return  this.http.post('https://localhost:7084/api/Charity',Charity);
+    return  this.http.post('https://localhost:7091/api/Charity',Charity);
  
   }
   updateCharity(Charity: any): Observable<any> {
 
-    return this.http.put('https://localhost:7084/api/Charity/',Charity);
+    return this.http.put('https://localhost:7091/api/Charity/',Charity);
 
   }
 
   deleteCharity(id:number): Observable<any> {
-    return this.http.delete('https://localhost:7084/api/Charity/Delete/'+id);
+    return this.http.delete('https://localhost:7091/api/Charity/Delete/'+id);
   }
 
   uploadAttachment(file:FormData){
-    this.http.post('https://localhost:7084/api/Charity/uploadImage' ,file).subscribe((resp:any)=>{
+    this.http.post('https://localhost:7091/api/Charity/uploadImage' ,file).subscribe((resp:any)=>{
     this.upload_Image = resp.image; 
     },err=>{
       console.log('Something went wrong !!');

@@ -1,4 +1,5 @@
 import { Component,HostListener } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -6,11 +7,26 @@ import { Component,HostListener } from '@angular/core';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-  isSticky = false;
+  constructor(private router: Router) {}
 
+  isSticky = false;
+  username :any;
   ngOnInit() {
     this.loadStickyState();
+    this.username
+
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+
+      const userData = JSON.parse(user);
+        this.username  = userData.Name;
+
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
   }
+  user?: any = localStorage.getItem('user');
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -35,4 +51,9 @@ export class NavbarComponent {
       this.isSticky = JSON.parse(stickyState);
     }
   }
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    this.router.navigate(['']);
+}
 }

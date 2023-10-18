@@ -7,3 +7,23 @@
   .user-info span {
     margin-left: 10px;    /* Add some spacing between the image and user name */
   }
+  .badge {
+    position: absolute;
+    top: 76px;
+    right: -15px;
+    padding: 4px 8px;
+    border-radius: 60px;
+    background-color: #5bc1ac ;
+  }
+  .rounded-circle
+  {
+    max-width: 100px;
+    max-height: 200px;
+    width: auto;
+    height: auto;  }
+  .fit-image {
+    max-width: 100px;
+    max-height: 100px;
+    width: auto;
+    height: auto;
+  }

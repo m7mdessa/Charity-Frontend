@@ -25,6 +25,8 @@ export class UserService {
     return this.http.put<void>('https://localhost:7091/api/Donar', charity);
   }
   updateUser(user: any): Observable<void> {
+    user.image = this.upload_Image;
+
     return this.http.put<void>('https://localhost:7091/api/Donar/UpdateUser', user);
   }
   getCharityByUserId(userId: any): Observable<any[]> {
@@ -37,13 +39,6 @@ export class UserService {
     return this.http.delete('https://localhost:7091/api/Donar/deleteCharityByUserId/'+id);
   }
 
-  addTestimonial(testimonial: any): Observable<void> {
-    return this.http.post<void>('https://localhost:7091/api/Donar/CreateTestimonial', testimonial);
-  }
-
-  getTestimonialByUserId(userId: any): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7091/api/Donar/GetTestimonialByUserId/'+userId);
-  }
 
   getIssueByUserId(userId: any): Observable<any[]> {
     return this.http.get<any[]>('https://localhost:7091/api/Donar/GetIssueByUserId/'+userId);

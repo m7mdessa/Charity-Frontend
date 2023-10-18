@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { DonarModule } from './donar/donar.module';
+import { CharitiesComponent } from './charities/charities.component';
+
 const routes: Routes = [
 
   {path:'admin', loadChildren:()=>AdminModule},
@@ -20,6 +22,9 @@ const routes: Routes = [
   { path:'contact', component:ContactComponent},
 
   { path:'about',component:AboutComponent},
+
+  { path:'Charities',component:CharitiesComponent},
+
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

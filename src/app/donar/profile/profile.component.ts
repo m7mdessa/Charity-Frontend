@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   focus: any;
   focus1: any;
   focus5: any;
-
+ 
   constructor( private userService: UsersService,private user: UserService,private toastr: ToastrService ) {}
 
   
@@ -30,13 +30,13 @@ export class ProfileComponent implements OnInit {
     Aos.init({disable: 'mobile'});
     Aos.refresh();
     this.getProfile();
-
   }
 
 
   updateForm : FormGroup = new FormGroup({
     
     id: new FormControl(),
+    image: new FormControl([Validators.required]),
     password: new FormControl('', [Validators.required, Validators.minLength(8)]),
     confirmPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
 
@@ -52,7 +52,15 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-
+  UploadImage(file:any)
+  {
+  if(file.length==0)
+  return ; 
+  let fileToUpload=<File>file[0];
+  const formDate=new FormData();
+  formDate.append('file',fileToUpload,fileToUpload.name);
+  this.user.uploadAttachment(formDate);
+  }
    
   updateUser() {
     

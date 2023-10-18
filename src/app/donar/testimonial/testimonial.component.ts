@@ -8,6 +8,7 @@ import  Swiper from 'swiper';
 import { Navigation, Pagination,Autoplay } from 'swiper/modules';
 
 import * as Aos from 'aos';
+import { TestimonialService } from 'src/app/service/testimonial.service';
 Swiper.use([Autoplay]);
 
 @Component({
@@ -17,41 +18,32 @@ Swiper.use([Autoplay]);
 })
 export class TestimonialComponent implements OnInit {
   @ViewChild('callCreateDialog') callCreateDialog! :TemplateRef<any>
+  profile: any[] = [];
 
   testimonials: any[] = [];
   userTokenData: any;
   userId: string = '';
   private swiper!: Swiper;
 
-  constructor(
-    private userService: UserService,private toastr: ToastrService,private dialog:MatDialog,private authService: AuthService) {
+  constructor(private testimonialService: TestimonialService,private userService: UserService,private toastr: ToastrService,private dialog:MatDialog,private authService: AuthService) {
 
   }
   
   ngOnInit(): void {
     this.getTestimonials();
+    this.getProfile();
+
     this.initSwiper();
 
     Aos.init({disable: 'mobile'});
     Aos.refresh();
    
-    this.userTokenData = this.userService.getUserTokenData();
-    if ( this.userTokenData ) {
-      this.userId =  this.userTokenData.UserId;
-      console.log('User ID in AnotherComponent:', this.userId);
-      this.getTestimonials();
-
-    } else {
-      console.log('User token data not available in AnotherComponent');
-    }
-    this.CreateForm.get('userid')?.setValue(this.userId);
 
   }
 
 
   CreateForm : FormGroup = new FormGroup({
     userid: new FormControl(),
-    username: new FormControl(''),
     testimonial: new FormControl('')
    });
 
@@ -62,19 +54,57 @@ export class TestimonialComponent implements OnInit {
   this.dialog.open(this.callCreateDialog);
   
   }
+  getProfile() {
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+
+      const userData = JSON.parse(user);
+    
+      var userId = userData.UserId;
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
+    this.userService.getUser(userId).subscribe((profile) => {
+      this.profile = profile;
+      console.log('profile',profile);
+
+    });
+  }
+
   getTestimonials() {
-    this.userService.getTestimonialByUserId(this.userId).subscribe((testimonials) => {
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+
+      const userData = JSON.parse(user);
+    
+      var userId = userData.UserId;
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
+    this.testimonialService.getTestimonialByUserId(userId).subscribe((testimonials) => {
       this.testimonials = testimonials;
     });
   }
 
   
   addTestimonial(){
+    const user = localStorage.getItem('user');
+    if (user !== null) {
 
+      const userData = JSON.parse(user);
+    
+      var userId = userData.UserId;
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
     console.log(this.CreateForm.value);
-    this.CreateForm.get('userid')?.setValue(this.userId);
+    this.CreateForm.get('userid')?.setValue(userId);
+    console.log(this.CreateForm.value);
 
-    this.userService.addTestimonial(this.CreateForm.value).subscribe((_res:any) => {
+    this.testimonialService.addTestimonial(this.CreateForm.value).subscribe((_res:any) => {
          console.log('Testimonial created successfully!');
          this.toastr.success('Testimonial added successfully.', 'Success');
          this.getTestimonials(); 

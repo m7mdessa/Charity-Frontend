@@ -9,6 +9,7 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { SharedModule } from './shared/shared.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CharitiesComponent } from './charities/charities.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     AboutComponent,
     ContactComponent,
+    CharitiesComponent,
   ],
   imports: [
     BrowserModule,

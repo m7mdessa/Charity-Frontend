@@ -1,0 +1,6 @@
+.featured-block {
+    text-align: center;
+    transition: all 1.5s ease;
+    min-height: 161px;
+    padding: inherit;
+}

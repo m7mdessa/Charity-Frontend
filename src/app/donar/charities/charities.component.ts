@@ -72,7 +72,6 @@ isLinear = false;
    });
 
    payForm : FormGroup = new FormGroup({
-    userid: new FormControl(),
     cardholdernumber: new FormControl(),
     cardnumber: new FormControl(),
     expirationdate: new FormControl(),
@@ -97,12 +96,45 @@ isLinear = false;
   
   }
 
-  OpenDialogPay()
-  {
-    
-  this.dialog.open(this.callPayDialog);
+
+
+
   
-  }
+  OpenDialogPay(charityId:number){
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+
+      const userData = JSON.parse(user);
+    
+      var userId = userData.UserId;
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
+    console.log(charityId,userId)
+
+    const dialogRef= this.dialog.open(this.callPayDialog);
+    dialogRef.afterClosed().subscribe((result)=>{
+       if(result!=undefined)
+       {
+        if (result == 'yes') {
+          this.userService.payForCharity(userId,charityId,this.payForm.value).subscribe((_res:any) => {
+            console.log('Charity payed successfully!');
+            this.toastr.success('Charity payed successfully.', 'Success');
+            this.getCharities(); 
+            this.dialog.closeAll();
+            this.payForm.reset();
+   
+       }) 
+        } else if (result == 'no') {
+          console.log("Thank you");
+        }
+        
+           
+       }
+ 
+    })
+   }
 
   getCharities() {
     const user = localStorage.getItem('user');
@@ -122,29 +154,7 @@ isLinear = false;
     });
   }
 
-  payForCharity(){
-    const user = localStorage.getItem('user');
-    if (user !== null) {
 
-      const userData = JSON.parse(user);
-    
-      var userId = userData.UserId;
-    
-    } else {
-      console.log('No user data found in local storage.');
-    }
-    console.log(this.payForm.value);
-    this.payForm.get('userid')?.setValue(userId);
-
-    this.userService.payForCharity(userId, this.payForm.value).subscribe((_res:any) => {
-         console.log('Charity payed successfully!');
-         this.toastr.success('Charity payed successfully.', 'Success');
-         this.getCharities(); 
-         this.dialog.closeAll();
-         this.payForm.reset();
-
-    })
-  }
   initMap() {
     const mapElement = document.getElementById("map-container");
     if (mapElement !== null) {

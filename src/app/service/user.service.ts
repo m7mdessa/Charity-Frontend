@@ -62,8 +62,8 @@ export class UserService {
     return this.http.put<void>('https://localhost:7091/api/Donar/UpdateCharity', charity);
   }
 
-  payForCharity(userId: any, payment: any): Observable<void> {
-    return this.http.post<void>('https://localhost:7091/api/Donar/PayForCharity/' + userId, payment);
+  payForCharity(userId: any, charityId: any,payment: any): Observable<void> {
+    return this.http.post<void>('https://localhost:7091/api/Donar/PayForCharity/'  + userId + '/' + charityId, payment);
   }
 
   donateForCharity(userId: any, charityId: any, payment: any): Observable<void> {

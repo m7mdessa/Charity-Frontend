@@ -1,0 +1,38 @@
+.hh {
+    position: absolute;
+    top: -21px;
+    right: -21px;
+    padding: 4px 8px;
+    border-radius: 11px;
+  }
+  .hhh{
+    position: absolute;
+    top: -21px;
+    left: -21px;
+    padding: 4px 8px;
+    border-radius: 11px;
+  }
+  .mat-icon{
+    color: #fff;
+    background: none;
+  
+  }
+  .button {
+    background-color: rgb(73, 73, 73);
+    padding: 6px;
+    font-size: 12px;
+    width: 35px;
+    height: 35px;
+  }
+  .button-check {
+    background-color: green;
+    padding: 6px;
+    font-size: 12px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .custom-btn {
+    background-color: #5bc1ac;
+    }
+    

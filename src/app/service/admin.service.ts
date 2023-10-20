@@ -9,43 +9,46 @@ export class AdminService {
   constructor(private http: HttpClient) {}
 
   updateAdmin(admin: any): Observable<any> {
-    return this.http.put<any>('https://localhost:7084/api/Admin/UpdateAdmin', admin);
+    return this.http.put<any>('https://localhost:7091/api/Admin/UpdateAdmin', admin);
+  }
+  AcceptCharity(charity: any): Observable<any> {
+    return this.http.put<any>('https://localhost:7091/api/Admin/AcceptCharity', charity);
   }
 
   getNumberOfUsers(): Observable<number> {
-    return this.http.get<number>('https://localhost:7084/api/Admin/NumberOfUsers');
+    return this.http.get<number>('https://localhost:7091/api/Admin/NumberOfUsers');
   }
   getNumberOfCharities(): Observable<number> {
-    return this.http.get<number>('https://localhost:7084/api/Admin/NumberOfCharitis');
+    return this.http.get<number>('https://localhost:7091/api/Admin/NumberOfCharitis');
   }
   GetNumberOfNotifications(): Observable<number> {
-    return this.http.get<number>('https://localhost:7084/api/Admin/NumberOffNotifications');
+    return this.http.get<number>('https://localhost:7091/api/Admin/NumberOffNotifications');
   }
   getMaxCharityCategory(): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7084/api/Admin/MaxCharityCategory');
+    return this.http.get<any[]>('https://localhost:7091/api/Admin/MaxCharityCategory');
   }
 
   searchBetweenDates(sareach: any): Observable<any[]> {
-    return this.http.post<any[]>(`https://localhost:7084/api/Admin/SerchBetweenDates`, sareach);
+    return this.http.post<any[]>(`https://localhost:7091/api/Admin/SerchBetweenDates`, sareach);
   }
 
   getReports(): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7084/api/Admin/Reports');
+    return this.http.get<any[]>('https://localhost:7091/api/Admin/Reports');
   }
 
   GetAllNotifications(): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7084/api/Admin/GetAllNotifications');
+    return this.http.get<any[]>('https://localhost:7091/api/Admin/GetAllNotifications');
   }
   GetAllDonations(): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7084/api/Admin/GetAllDonations');
+    return this.http.get<any[]>('https://localhost:7091/api/Admin/GetAllDonations');
   }
   
   getBenefits(): Observable<any[]> {
-    return this.http.get<any[]>('https://localhost:7084/api/Admin/Benefits');
+    return this.http.get<any[]>('https://localhost:7091/api/Admin/Benefits');
   }
 
   getReportsInterval(startDate: Date, endDate: Date): Observable<any> {
-    return this.http.post('https://localhost:7084/api/Admin/ReportsInterval', { startDate, endDate });
+    return this.http.post('https://localhost:7091/api/Admin/ReportsInterval', { startDate, endDate });
   }
   
 }

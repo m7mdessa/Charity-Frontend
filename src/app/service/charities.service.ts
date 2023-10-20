@@ -24,7 +24,13 @@ export class CharitiesService {
   getCharityByUserId(userId: any): Observable<any[]> {
     return this.http.get<any[]>('https://localhost:7091/api/Charity/getCharityByUserId/'+userId);
   }
+
+  GetCharityByCategory(categoryId: any): Observable<any[]> {
+    return this.http.get<any[]>('https://localhost:7091/api/Charity/GetCharityByCategory/'+categoryId);
+  }
+  
   addCharity(Charity: any): Observable<any>{
+
     Charity.image = this.upload_Image;
 
     return  this.http.post('https://localhost:7091/api/Charity',Charity);

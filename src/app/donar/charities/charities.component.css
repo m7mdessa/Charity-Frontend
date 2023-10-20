@@ -92,17 +92,32 @@
 .example-full-width {
   width:50%;
 }
-.badge {
+.hh {
   position: absolute;
-  top: 0;
-  right: 0;
-  background-color: red; /* Customize the badge background color */
-  color: white; /* Customize the badge text color */
+  top: -21px;
+  right: -21px;
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: 11px;
 }
+.mat-icon{
+  color: #fff;
+  background: none;
 
+}
+.button {
+  background-color: rgb(73, 73, 73);
+  padding: 6px;
+  font-size: 12px;
+  width: 35px;
+  height: 35px;
+}
+.add-button {
+  background-color: green;
 
+}
 .demo-section + .demo-section {
   margin-top: 16px;
+}
+.custom-btn {
+background-color: #5bc1ac;
 }

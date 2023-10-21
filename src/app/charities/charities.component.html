@@ -16,7 +16,7 @@
                       <div class="card card-lift--hover shadow featured-block d-flex justify-content-center align-items-center">
                
                         <div class="custom-block">
-                            <img src="../../assets/img/{{Charity.image }}" class="custom-block-image img-fluid" alt="">
+                            <img src="../../assets/img/{{Charity.image}}" class="custom-block-image img-fluid" alt="">
         
                             <div class="custom-block-body">
                                 
@@ -32,7 +32,7 @@
                                 <div class="d-flex align-items-center my-2">
                                     <p class="mb-0">
                                         <strong>Raised:</strong>
-                                        ${{Charity.totalprice }}
+                                        ${{Charity.totalprice}}
                                     </p>
         
                                     <p class="ms-auto mb-0">
@@ -45,7 +45,7 @@
                                         
                                               
                             <ng-container *ngIf="Charity.status === 'Paid';">
-                              <a class="btn" >{{Charity.status }}</a>
+                              <a class="btn"(click)="OpenDonateDialog(Charity.id)" >Donate</a>
                             </ng-container>                  
                                               
                           </div>
@@ -56,7 +56,53 @@
  
 
               </div>
+   
+              <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0" *ngFor="let Charity of CharityByCategory">
+                  
+                 
+                <div class="card card-lift--hover shadow featured-block d-flex justify-content-center align-items-center">
+         
+                  <div class="custom-block">
+                      <img src="../../assets/img/{{Charity.image}}" class="custom-block-image img-fluid" alt="">
+  
+                      <div class="custom-block-body">
+                          
+                          <h3 class="mb-3">{{Charity.charityname }}</h3>
+  
+                          <p>{{Charity.mission }}</p>
+  
+                          <div class="progress mt-4">
+                              <div class="progress-bar w-75" role="progressbar" aria-valuenow="75"
+                                  aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+  
+                          <div class="d-flex align-items-center my-2">
+                              <p class="mb-0">
+                                  <strong>Raised:</strong>
+                                  ${{Charity.totalprice}}
+                              </p>
+  
+                              <p class="ms-auto mb-0">
+                                  <strong>Goal:</strong>
+                                  ${{Charity.goalprice }}
+                              </p>
+                          </div>
+                      </div>
+                        
+                                  
+                                        
+                      <ng-container *ngIf="Charity.status === 'Paid';">
+                        <a class="btn"(click)="OpenDonateDialog(Charity.id)" >Donate</a>
+                      </ng-container>                    
+                                        
+                    </div>
+                </div>
 
+
+
+
+
+        </div>
               <div class="col-lg-4 ">
                   <form class="custom-form search-form" action="#" method="post" role="form">
                       <input class="form-control" type="search" placeholder="Search" aria-label="Search">
@@ -71,8 +117,8 @@
                       <h2 class="mb-3">Categories</h2>
 
                         <div class="col-lg-6 "*ngFor="let category of categories">
-                          <div class="featured-block ">
-                              <a class="">
+                          <div class="featured-block">
+                              <a class="" (click)="GetCharityByCategory(category.id)">
                                   <img src="assets/userAssets/images/icons/hands.png" class="featured-block-image img-fluid" alt="">
               
                                   <h4 class="featured-block-text">{{category.categoryname}} </h4>
@@ -90,5 +136,41 @@
       </div>
   </section>
 </main>
+<ng-template #callDonateDialog>
+    <div class="mat-dialog-container">
+      <div class="dialog-header">
+        <h2>Donate For Charity </h2>
+
+      </div>
+      <select>
+        <option> {{totallPrice}}</option>
+        <option>
+            
+        </option> <option>
+            
+        </option>
+      </select>
+      <form [formGroup]="payForm"class="example-container" >
+    
+        <mat-form-field appearance="outline" >
+          <mat-label>Cardholder Name</mat-label>
+          <input matInput placeholder="Cardholder Name" formControlName="cardholdernumber">
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+          <mat-label>Card Number</mat-label>
+          <input matInput placeholder="Card Number" formControlName="cardnumber">
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+          <mat-label>Expiration Date</mat-label>
+          <input matInput placeholder="Expiration Date" formControlName="expirationdate">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>CVV</mat-label>
+          <input matInput placeholder="CVV" formControlName="cvv">
+        </mat-form-field>
+        <button mat-button color="primary" type="submit" mat-dialog-close="yes"[disabled]="!payForm.valid">Pay for Charity</button>
+      </form>
+    </div>
+  </ng-template>
 
 <app-footer></app-footer>

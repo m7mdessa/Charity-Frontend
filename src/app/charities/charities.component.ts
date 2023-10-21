@@ -16,16 +16,14 @@ import { UserService } from '../service/user.service';
 export class CharitiesComponent implements OnInit  {
   @ViewChild('callDonateDialog') callDonateDialog! :TemplateRef<any>
   donationForm: FormGroup | undefined;
-
+  totallPrice:any=50
+  CharityByCategory: any[] = [];
   charities: any[] = [];
   categories: any[] = [];
   acceptedCharities: any[] =[];
   filteredCharities: any[] = [];
-
   @Input() charityId: any;
     userId: any;
-    hideUserIdField: boolean = true; 
-  userTokenData: any;
   _filterText:string='';
   constructor(private router: Router,  private userService: UserService,private toastr: ToastrService,private charitiesService:CharitiesService,private categoriesService:CategoriesService, public dialog: MatDialog) { 
 
@@ -35,14 +33,7 @@ export class CharitiesComponent implements OnInit  {
   ngOnInit(): void {
     this.loadAcceptedCharities();
     this.getCategories();
-    this.userTokenData = this.userService.getUserTokenData();
-    if ( this.userTokenData ) {
-      this.userId =  this.userTokenData.UserId;
-      console.log('User ID in AnotherComponent:', this.userId);
-
-    } else {
-      console.log('User token data not available in AnotherComponent');
-    }
+  
     this.payForm.get('userid')?.setValue(this.userId);
 
   }
@@ -54,40 +45,55 @@ export class CharitiesComponent implements OnInit  {
 
   }
 
+  GetCharityByCategory(categoryId:any) {
+    this.charitiesService.GetCharityByCategory(categoryId).subscribe((CharityByCategory) => {
+      this.CharityByCategory = CharityByCategory;
+    });
 
-
-
-OpenDonateDialog(charity: any) {
-  if (!this.userId) {
-    this.toastr.warning('Please log in to donate.', 'Login Required');
-
-    this.router.navigate(['/auth/login']); 
-    return;
-}
-this.dialog.open(this.callDonateDialog,);
-  this.charityId = charity.id;
-  this.payForm.get('charityid')?.setValue(this.charityId);
-
-}
-  isUserLoggedIn() {
-    throw new Error('Method not implemented.');
   }
 
-  Donation(){
-    console.log('Charity not paid!',this.payForm.value);
 
-    this.userService.donateForCharity(this.userId, this.charityId,this.payForm.value).subscribe((_res:any) => {
-         console.log('Charity payed successfully!');
-         this.toastr.success('Charity payid successfully.', 'Success');
-         this.dialog.closeAll();
-         this.payForm.reset();
 
+  OpenDonateDialog(charityId: any) {
+    const user = localStorage.getItem('user');
+    if (user !== null) {
+
+      const userData = JSON.parse(user);
+    
+      var userId = userData.UserId;
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
+    
+    console.log(charityId,userId)
+
+    const dialogRef= this.dialog.open(this.callDonateDialog);
+
+    dialogRef.afterClosed().subscribe((result)=>{
+       if(result!=undefined)
+       {
+        if (result == 'yes') {
+          this.userService.donateForCharity(userId,charityId,this.totallPrice,this.payForm.value).subscribe((_res:any) => {
+            console.log('Charity payed successfully!');
+            this.toastr.success('Charity payed successfully.', 'Success');
+            this.loadAcceptedCharities(); 
+            this.dialog.closeAll();
+            this.payForm.reset();
+   
+       }) 
+        } else if (result == 'no') {
+          console.log("Thank you");
+        }
+        
+           
+       }
+ 
     })
-  }
+   }
+
   payForm : FormGroup = new FormGroup({
-    userid: new FormControl(''),
-    charityid: new FormControl(''),
-    cardholdernumber: new FormControl(),
+      cardholdernumber: new FormControl(),
     cardnumber: new FormControl(),
     expirationdate: new FormControl(),
     cvv: new FormControl()

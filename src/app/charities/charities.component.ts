@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { CategoriesService } from '../service/categories.service';
 import { CharitiesService } from '../service/charities.service';
 import { UserService } from '../service/user.service';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-charities',
@@ -16,7 +17,14 @@ import { UserService } from '../service/user.service';
 export class CharitiesComponent implements OnInit  {
   @ViewChild('callDonateDialog') callDonateDialog! :TemplateRef<any>
   donationForm: FormGroup | undefined;
-  totallPrice:any=50
+  selectedValue: number | null = null;
+  Amounts: number[] = [40, 50, 60, 100,110];
+
+  onSelectChange(event: any) {
+     this.selectedValue = event.target.value;
+    console.log('Selected Value:', this.selectedValue);
+  } 
+  
   CharityByCategory: any[] = [];
   charities: any[] = [];
   categories: any[] = [];
@@ -25,6 +33,9 @@ export class CharitiesComponent implements OnInit  {
   @Input() charityId: any;
     userId: any;
   _filterText:string='';
+  progressValue: Observable<number> | undefined;
+  totalDonation: number = 10;
+  
   constructor(private router: Router,  private userService: UserService,private toastr: ToastrService,private charitiesService:CharitiesService,private categoriesService:CategoriesService, public dialog: MatDialog) { 
 
     
@@ -33,11 +44,22 @@ export class CharitiesComponent implements OnInit  {
   ngOnInit(): void {
     this.loadAcceptedCharities();
     this.getCategories();
-  
-    this.payForm.get('userid')?.setValue(this.userId);
+    this.getcharities();
+    this.updateProgress();
 
   }
- 
+  updateProgress() {
+    this.progressValue = this.getcharities().pipe(
+      map(totalPrice => {
+        if (totalPrice > 0) {
+          return (totalPrice / 100) * 25;
+        } else {
+          return 0;
+        }
+      })
+    );
+  }
+  
   getCategories() {
     this.categoriesService.getCategories().subscribe((categories) => {
       this.categories = categories;
@@ -52,7 +74,7 @@ export class CharitiesComponent implements OnInit  {
 
   }
 
-
+  
 
   OpenDonateDialog(charityId: any) {
     const user = localStorage.getItem('user');
@@ -74,8 +96,11 @@ export class CharitiesComponent implements OnInit  {
        if(result!=undefined)
        {
         if (result == 'yes') {
-          this.userService.donateForCharity(userId,charityId,this.totallPrice,this.payForm.value).subscribe((_res:any) => {
+          
+          this.userService.donateForCharity(userId,charityId,this.payForm.value).subscribe((_res:any) => {
             console.log('Charity payed successfully!');
+            console.log(userId,charityId,this.payForm.value);
+
             this.toastr.success('Charity payed successfully.', 'Success');
             this.loadAcceptedCharities(); 
             this.dialog.closeAll();
@@ -93,7 +118,8 @@ export class CharitiesComponent implements OnInit  {
    }
 
   payForm : FormGroup = new FormGroup({
-      cardholdernumber: new FormControl(),
+    totalprice: new FormControl(),
+    cardholdernumber: new FormControl(),
     cardnumber: new FormControl(),
     expirationdate: new FormControl(),
     cvv: new FormControl()
@@ -101,17 +127,26 @@ export class CharitiesComponent implements OnInit  {
    });
  
   loadAcceptedCharities() {
+    
     this.charitiesService.getAcceptedCharities().subscribe(
-      (charities) => {
+      (charities: any[]) => {
         this.acceptedCharities = charities;
+    
       },
       (error) => {
         console.error('Error loading accepted charities:', error);
       }
     );
   }
-
+  getcharities() {
+    return this.charitiesService.getCharities().pipe(
+      map((charities: any[]) => {
+        return charities.reduce(( charity) => charity.totalprice);
+      })
+    );
+  }
  
+
   get displayedCharities() {
  
     return this.acceptedCharities;

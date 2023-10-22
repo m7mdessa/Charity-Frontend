@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AdminService } from 'src/app/service/admin.service';
@@ -19,7 +19,7 @@ export class CharitiesComponent implements OnInit {
 
   
 
-    constructor(   private charitiesService: CharitiesService, private adminService:AdminService, private toastr: ToastrService) {
+    constructor( private cdr: ChangeDetectorRef,  private charitiesService: CharitiesService, private adminService:AdminService, private toastr: ToastrService) {
  }
     form :FormGroup = new FormGroup({
       charityname: new FormControl(''),
@@ -89,11 +89,17 @@ export class CharitiesComponent implements OnInit {
       
      });
      
-     updateStatus(status: string) {
+     updateStatus(status: string, Charity: any) {
       this.AcceptForm.get('status')?.setValue(status);
+      this.AcceptForm.get('id')?.setValue(Charity.id);
+
+      // Use setTimeout to trigger change detection outside the current cycle
+      setTimeout(() => {
+        this.cdr.detectChanges();
+      });
     }
   
-    AcceptCharity() {
+    AcceptCharity(Charity: any) {
       this.adminService.AcceptCharity(this.AcceptForm.value).subscribe(
         (response) => {
           console.log( this.AcceptForm.value);

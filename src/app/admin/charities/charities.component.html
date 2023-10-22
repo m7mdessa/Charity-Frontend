@@ -27,18 +27,18 @@
           
          
                             <div class="card card-lift--hover shadow featured-block d-flex justify-content-center align-items-center">
-                                <form (ngSubmit)="AcceptCharity()"[formGroup]="AcceptForm">
-                                    <input  type="hidden"[(ngModel)]="Charity.id" formControlName="id" name="id">
+                                <form (ngSubmit)="AcceptCharity(Charity)"[formGroup]="AcceptForm">
+                                    <input  type="hidden" formControlName="id" name="id">
 
                               
                                <a class="hh">        
-            <button mat-fab aria-label="Example icon button with a delete icon" (click)="updateStatus('Rejected')"class="button">
+            <button mat-fab aria-label="Example icon button with a delete icon" (click)="updateStatus('Rejected', Charity)"class="button">
               <mat-icon>close</mat-icon>
             </button>
             
                             </a>
                             <a class="hhh">        
-                                <button mat-fab aria-label="Example icon button with a delete icon" (click)="updateStatus('Accepted')"class="button-check">
+                                <button mat-fab aria-label="Example icon button with a delete icon" (click)="updateStatus('Accepted', Charity)"class="button-check">
                                   <mat-icon>check</mat-icon>
                                 </button>
                                 

@@ -1,5 +1,4 @@
 
-
 <app-navbar></app-navbar>
 <main class="profile-page py-5">
   <br>
@@ -18,101 +17,106 @@
 <br>
 <br>
 
-    <section class="section">
-      <div class="container">
-        <div class="card card-profile shadow mt--300">
-          <div class="px-4">
-            <div class="row justify-content-center">
-              <div class="col-lg-2 order-lg-2"*ngFor="let profile of profile">
-                <div class="card-profile-image">
-                  <a href="javascript:void(0)">
-                    <img src="../../assets/img/{{profile.image }}" class="rounded-circle">
-                  </a>
-                  <form [formGroup]="updateForm">
-                    <div class="file-upload-container">
-                      <mat-form-field appearance="fill">
-                        <mat-label>Upload Image</mat-label>
-                        <mat-icon matSuffix class="upload-icon">cloud_upload</mat-icon>
-                        <input type="file" formControlName="image" #file (change)="UploadImage(file.files)" accept="image/*">
-                      </mat-form-field>
-                    </div>
-                    <div class="col-lg-6">
-                      <input type="submit" class="btn btn-primary text-white py-3" (click)="updateUser()" value="Update Password">
-                    </div>
-                  </form>
-                
-                </div>
-             
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
-
-            
-                <div >
-               
-                  <h3>{{profile.username }}</h3>
-                  <h3>{{profile.email }}</h3>
-
-                </div>
-                              </div>
-       
-              <div class="col-lg-9 order-lg-1">
-                <div class="card-profile-stats d-flex ">
-                  <div class="card-profile-actions py-4 mt-lg-0">
-                    <a routerLink="/user/Donations" class="btn btn-sm btn-info mr-4">Donations</a>
-                    <a routerLink="/user/Issues" class="btn btn-sm btn-info mr-4">Issues</a>
-                    <a routerLink="/user/Testimonial" class="btn btn-sm btn-info mr-4">Testimonials</a>
-                    <a routerLink="/user/Profile" class="btn btn-sm btn-info mr-4">Profile</a>
-                    <a routerLink="/user/Charities" class="btn btn-sm btn-info mr-4">Charities</a>
-                  </div>
-                </div>
-                <form  [formGroup]="updateForm">
-                  <div class="mb-3 col-lg-6">
-                    <mat-form-field appearance="outline">
-                      <mat-label>Enter password</mat-label>
-                      <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter password" formControlName="password">
-                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                      </button>
-                      <mat-error *ngIf="updateForm.get('password')?.hasError('required')">Password is required</mat-error>
-                      <mat-error *ngIf="updateForm.get('password')?.hasError('minlength')">Password must be at least 8 </mat-error>
-                  
-                    </mat-form-field>
-                    </div>
-                    <div class="mb-3 col-lg-6">
-                    <mat-form-field appearance="outline">
-                      <mat-label>Enter Confirm password</mat-label>
-                      <input matInput [type]="hidee ? 'password' : 'text'" placeholder="Confirm password" formControlName="confirmPassword"(change)="matchError()">
-                      <button mat-icon-button matSuffix (click)="hidee = !hidee" [attr.aria-label]="'Hide confirmPassword'" [attr.aria-pressed]="hidee">
-                        <mat-icon>{{hidee ? 'visibility_off' : 'visibility'}}</mat-icon>
-                      </button>
-                      <mat-error *ngIf="updateForm.get('confirmPassword')?.hasError('required')">Confirm password is required</mat-error>
-                      <mat-error *ngIf="updateForm.get('confirmPassword')?.hasError('minlength')">Password must be at least 8</mat-error>
-                  
-                      <mat-error *ngIf="updateForm.get('confirmPassword')?.hasError('misMatch')">Passwords do not match</mat-error>
-                  
-                    </mat-form-field>
-                    </div>
-                
-                
-                    <div class="col-lg-6">
-                        <input type="submit" class="btn btn-primary text-white py-3"(click)="updateUser()"[disabled]="!updateForm.valid" value="Update Password">
-                    </div>
-              </form>
+  <section class="section ">
+    <div class="container">
+      <div class="card card-profile shadow mt--300">
+        <div class="px-4"*ngFor="let profile of profile">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+                <a href="javascript:void(0)">
+                  <img src="../../assets/img/{{profile.image}}" class="rounded-circle">
+                </a>
               </div>
-              
             </div>
-            <div class="text-center mt-5">
-              
+            <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+              <div class="card-profile-actions py-4 mt-lg-0">
+                <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4"(click)="openEditDailog()">Connect</a>
+                <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
+              </div>
             </div>
-         
+            <div class="col-lg-4 order-lg-1">
+              <div class="card-profile-stats d-flex justify-content-center">
+                <div>
+                  <span class="heading">22</span>
+                  <span class="description">Friends</span>
+                </div>
+                <div>
+                  <span class="heading">10</span>
+                  <span class="description">Photos</span>
+                </div>
+                <div>
+                  <span class="heading">89</span>
+                  <span class="description">Comments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center mt-5">
+            <h3>
+              {{profile.username }}
+            </h3>
+            <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>{{profile.email }}</div>
+       
+          </div>
+          <div class="mt-5 py-5 border-top text-center">
+            <div class="row justify-content-center">
+              <div class="col-lg-9">
+               
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </section>
-  </main>
-  <app-footer></app-footer>
+    </div>
+  </section>
+</main>
+
+<ng-template #callEditDailog>
+  <div class="mat-dialog-container">
+  <div class="dialog-header">
+  <h2>Edit Profile</h2>
+  </div>
+  <form class="example-container" [formGroup]="updateForm">
+    <div class="mb-3 col-lg-6 ">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" placeholder="Enter password" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="updateForm.get('password')?.hasError('required')">Password is required</mat-error>
+        <mat-error *ngIf="updateForm.get('password')?.hasError('minlength')">Password must be at least 8 </mat-error>
+    
+      </mat-form-field>
+      </div>
+      <div class="mb-3 col-lg-6">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter Confirm password</mat-label>
+        <input matInput [type]="hidee ? 'password' : 'text'" placeholder="Confirm password" formControlName="confirmPassword"(change)="matchError()">
+        <button mat-icon-button matSuffix (click)="hidee = !hidee" [attr.aria-label]="'Hide confirmPassword'" [attr.aria-pressed]="hidee">
+          <mat-icon>{{hidee ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error *ngIf="updateForm.get('confirmPassword')?.hasError('required')">Confirm password is required</mat-error>
+        <mat-error *ngIf="updateForm.get('confirmPassword')?.hasError('minlength')">Password must be at least 8</mat-error>
+    
+        <mat-error *ngIf="updateForm.get('confirmPassword')?.hasError('misMatch')">Passwords do not match</mat-error>
+    
+      </mat-form-field>
+      </div>
+  
+  <div class="form-field-spacer"></div>
+  <div>
+  <label for="name">Image:</label>
+  
+        <input type="file"  formControlName="image"    #file   (change)="UploadImage(file.files)">
+        <mat-error *ngIf="updateForm.get('image')?.hasError('required')">Image is required</mat-error>
+  
+  </div>
+  <div class="dialog-footer">
+  <button mat-raised-button color="primary" (click)="updateUser()" >Save</button>
+  </div>
+  </form>
+  </div>
+  </ng-template>
+<app-footer></app-footer>

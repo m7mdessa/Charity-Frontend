@@ -121,3 +121,10 @@ margin-top: 16px;
 .custom-btn {
 background-color: #5bc1ac;
 }
+.rounded-circle {
+  max-width: 100px;
+  max-height: 197px;
+  width: 164px;
+  height: 165px;
+
+}

@@ -22,48 +22,43 @@
       </div>
     
       <br>
+      <div class="row">
+
+      <div class="col-lg-3 "*ngFor="let testimonial of testimonials">
       
-      <table class="table table-hover product_item_list c_table theme-color mb-0" #reportTable>
-        <thead>
-            <tr>
-                <th>User Name</th>
-                <th>Testimonial </th>
-                <th>Image</th>
-                <th>Date </th>
-                
+        <div class="featured-block">
+            <a class="" >
+                <img src="../../assets/img/{{testimonial.image }}" class="featured-block-image img-fluid" alt="">
+                <br>
+                <h4 class="featured-block-text">{{testimonial.username}} </h4>
+                <br>
+                <h4 class="featured-block-text">{{testimonial.testimonial}} </h4>
+                <br>
+                <h4 class="featured-block-text">{{testimonial.datetestimonial}} </h4>
+                <br>
+                <h4 class="featured-block-text">{{testimonial.status}} </h4>
+            </a>
+            <form (ngSubmit)="AcceptCharity(testimonial)"[formGroup]="AcceptForm">
+                                    <input  type="hidden" formControlName="id" name="id">
 
-            </tr>
-        </thead>
-
-        <tbody>
+                              
+                               <a class="hh">        
+            <button mat-fab aria-label="Example icon button with a delete icon" (click)="updateStatus('Rejected', testimonial)"class="button">
+              <mat-icon>close</mat-icon>
+            </button>
             
-                <tr *ngFor="let testimonial of testimonials">
-                    <td>{{testimonial.username}}</td>
-                    <td>{{testimonial.testimonial}}</td>
-                    <td>
-                        <img src="../../assets/img/{{testimonial.image }}" width="70" alt="Charity img">
-                    </td>
- 
-           <!-- <div class="action-buttons">
-              <ng-container *ngIf="testimonial.status === 'Pending'; ">
-                <button mat-icon-button (click)="acceptTestimonial(testimonial)">
-                  <mat-icon>check_circle</mat-icon>
-                </button>
-                <button mat-icon-button (click)="rejectTestimonial(testimonial)">
-                  <mat-icon>cancel</mat-icon>
-                </button>
-              </ng-container>
-            </div>
-            --> 
-            <td>{{testimonial.createddate}}</td>
-
-                </tr>
-        </tbody>
-   
-      
-    </table>
-      
-   
+                            </a>
+                            <a class="hhh">        
+                                <button mat-fab aria-label="Example icon button with a delete icon" (click)="updateStatus('Accepted', testimonial)"class="button-check">
+                                  <mat-icon>check</mat-icon>
+                                </button>
+                                
+                                                </a>
+                                            </form>
+        </div>
+    </div>
+  
+   </div>
     
       <ng-template #callDeleteDailog>
         <div style="padding:15px">

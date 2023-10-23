@@ -24,6 +24,7 @@ export class CharitiesComponent implements OnInit {
 
   Charities: any[] = [];
   categories: any[] = [];
+  profile: any[] = [];
 
 totalPrice: number = 1000; // Replace 1000 with your actual total price
 currentPrice: number = 0;
@@ -35,6 +36,7 @@ isLinear = false;
     Aos.refresh();
     this.getCategories();
     this.getCharities();
+    this.getProfile();
 
     this.initMap();
     
@@ -46,7 +48,23 @@ isLinear = false;
     });
 
   }
+  getProfile() {
+    const user = localStorage.getItem('user');
+    if (user !== null) {
 
+      const userData = JSON.parse(user);
+    
+      var userId = userData.UserId;
+    
+    } else {
+      console.log('No user data found in local storage.');
+    }
+    this.userService.getUser(userId).subscribe((profile) => {
+      this.profile = profile;
+      console.log('profile',profile);
+
+    });
+  }
   getPercentage(): number {
     return (this.currentPrice / this.totalPrice) * 100;
   }

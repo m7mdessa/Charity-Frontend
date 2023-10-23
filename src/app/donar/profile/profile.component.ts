@@ -1,6 +1,7 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import * as Aos from 'aos';
 import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/service/user.service';
@@ -13,6 +14,7 @@ import { UsersService } from 'src/app/service/users.service';
 })
 
 export class ProfileComponent implements OnInit {
+  @ViewChild('callEditDailog') callEditDailog!:TemplateRef<any>
 
   profile: any[] = [];
   userTokenData: any;
@@ -23,7 +25,7 @@ export class ProfileComponent implements OnInit {
   focus1: any;
   focus5: any;
  
-  constructor( private userService: UsersService,private user: UserService,private toastr: ToastrService ) {}
+  constructor( private userService: UsersService,private user: UserService,private toastr: ToastrService,private dialog:MatDialog ) {}
 
   
   ngOnInit(): void {
@@ -82,7 +84,8 @@ export class ProfileComponent implements OnInit {
         console.log('User updated successfully:', responsee);
         this.toastr.success('User updated successfully.', 'Success');
          this.updateForm.reset();
-
+         this.dialog.closeAll();      
+ 
       
       },
       (error) => {
@@ -112,7 +115,11 @@ export class ProfileComponent implements OnInit {
 
     });
   }
+  openEditDailog() {
+  
+    this.dialog.open(this.callEditDailog);
 
+  }
   
  
 

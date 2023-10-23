@@ -37,6 +37,7 @@ export class TestimonialService {
   getTestimonialByUserId(userId: any): Observable<any[]> {
     return this.http.get<any[]>('https://localhost:7091/api/Testimonial/GetTestimonialByUserId/'+userId);
   }
+  
   getAcceptedTestimonials(): Observable<any[]> {
     return this.getTestimonials().pipe(
       map(testimonials => testimonials.filter(testimonial => testimonial.status === 'Accepted'))

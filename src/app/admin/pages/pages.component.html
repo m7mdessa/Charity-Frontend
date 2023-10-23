@@ -1,1 +1,276 @@
-<p>pages works!</p>
+<div id="wrapper">
+    <app-sidebar></app-sidebar>
+  
+    <div id="content-wrapper" class="d-flex flex-column">
+  
+        <app-nav></app-nav>
+        <div class="container-fluid">
+  
+      
+      <div class="block-header">
+          <div class="row">
+              <div class="col-lg-3 col-md-6 col-sm-12">
+                  <h2>Pages List</h2>
+                  <ul class="breadcrumb">
+                      <li class="breadcrumb-item"><a ><i class="zmdi zmdi-home"></i> Admin</a></li>
+                      <li class="breadcrumb-item">Pages</li>
+                    </ul>
+              </div>
+            
+          </div>
+        
+      </div>
+    
+      <br>
+      <a class="btn btn-success" (click)="OpenDialogAdd()">Create</a>
+
+      <div class="row">
+          
+            <table class="table table-hover product_item_list c_table theme-color mb-0">
+                <thead>
+                  <tr>
+                  
+                    <th style="color:#555555">Content</th>
+                    <th style="color:#555555">Slide1</th>
+                    <th style="color:#555555">Slide2</th>
+                    <th style="color:#555555">Slide3</th>
+                    <th style="color:#555555">Title</th>
+                    <th style="color:#555555">Email</th>
+                    <th style="color:#555555">Location</th>
+                    <th style="color:#555555">Phone Number</th>
+                    <th style="color:#555555">Logo</th>
+               
+          
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let page of pages">
+               
+                    <td>
+                      <h5>{{ page.content }}</h5>
+                    </td>
+                    <td >
+                        <img src="../../assets/img/{{page.slide1 }} " width="70" alt="Home img">
+                    </td>
+                    <td >
+                        <img src="../../assets/img/{{page.slide2 }} " width="70" alt="Home img">
+                    </td> <td >
+                        <img src="../../assets/img/{{page.slide3 }} " width="70" alt="Home img">
+                    </td>
+                     <td >
+                        <h3>{{ page.title }}</h3>
+
+                    </td>
+                    <td >
+                        <h3>{{ page.email}}</h3>
+
+                    </td>
+                    <td>
+                        <h3>{{ page.location }}</h3>
+                      </td>
+                      <td>
+                        <h3>{{ page.phone }}</h3>
+                      </td>
+                      <td>
+                        <img src="../../assets/img/{{page.logo }} " width="70" alt="logo">
+                      </td>
+                    
+                    <td>
+                      <div class="operation-links">
+                        <a class="operation-link edit-link" (click)="openEditDailog(page)">Edit</a>
+                        <a class="operation-link delete-link" (click)="openDeleteDailog(page.id)">Delete</a>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+          
+                            
+          
+          
+          
+       
+        </div>
+     
+      </div>
+   
+        </div>
+    </div>
+    
+  <ng-template #callDeleteDailog>
+    <div style="padding:15px">
+<h2>Are you sure you want to delete this item?</h2>
+<button class="btn btn-primary m-1"   mat-dialog-close="yes">Yes</button>
+<button class="btn btn-danger m-1"  mat-dialog-close="no">No</button> 
+</div>
+</ng-template>  
+      
+
+
+
+<ng-template #callEditDailog>
+<div class="mat-dialog-container">
+<div class="dialog-header">
+<h2>Edit Home</h2>
+</div>
+ 
+<form class="example-container" [formGroup]="edit">
+    <mat-form-field appearance="outline">
+    <mat-label>Enter content</mat-label>
+    <textarea matInput type="text" placeholder="Enter content" formControlName="content"></textarea>
+    <mat-error *ngIf="edit.get('content')?.hasError('required')">content is required</mat-error>
+    </mat-form-field>
+    <div class="form-field-spacer"></div>
+    
+    <mat-form-field appearance="outline">
+    <mat-label>Enter phone</mat-label>
+    <input matInput type="text" placeholder="Enter phone" formControlName="phone">
+    <mat-error *ngIf="edit.get('phone')?.hasError('required')">phone is required</mat-error>
+    </mat-form-field>
+    
+    <div class="form-field-spacer"></div>
+    <mat-form-field appearance="outline">
+        <mat-label>Enter email</mat-label>
+        <input matInput type="text" placeholder="Enter email" formControlName="email">
+        <mat-error *ngIf="edit.get('email')?.hasError('required')">email is required</mat-error>
+        </mat-form-field>
+        
+        <div class="form-field-spacer"></div>
+        <mat-form-field appearance="outline">
+            <mat-label>Enter title</mat-label>
+            <input matInput type="text" placeholder="Enter title" formControlName="title">
+            <mat-error *ngIf="edit.get('title')?.hasError('required')">title is required</mat-error>
+            </mat-form-field>
+            
+            <div class="form-field-spacer"></div>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter location</mat-label>
+      <input matInput type="text" placeholder="Enter location" formControlName="location">
+      <mat-error *ngIf="edit.get('location')?.hasError('required')">location is required</mat-error>
+      </mat-form-field>
+    <div class="form-field-spacer"></div>
+   
+    <div>
+        <label for="name">Slide1:</label>
+        
+              <input type="file"  formControlName="slide1"    #slide1   (change)="Slide1(slide1.files)">
+              <mat-error *ngIf="edit.get('slide1')?.hasError('required')">Slide1 is required</mat-error>
+        
+        </div>
+        <div class="form-field-spacer"></div>
+    
+        <div>
+            <label for="name">Slide2:</label>
+            
+                  <input type="file"  formControlName="slide2"    #slide2   (change)="Slide2(slide2.files)">
+                  <mat-error *ngIf="edit.get('slide2')?.hasError('required')">Slide2 is required</mat-error>
+            
+            </div>
+            <div class="form-field-spacer"></div>
+    
+            <div>
+                <label for="name">Slide3:</label>
+                
+                      <input type="file"  formControlName="slide3"    #slide3   (change)="Slide3(slide3.files)">
+                      <mat-error *ngIf="edit.get('slide3')?.hasError('required')">Slide3 is required</mat-error>
+                
+                </div>
+    <div class="form-field-spacer"></div>
+    
+    <div>
+    <label for="name">Logo:</label>
+    
+    <input name="logo" type="file"  formControlName="logo"    #logo   (change)="Logo(logo.files)">
+    <mat-error *ngIf="edit.get('logo')?.hasError('required')">logo is required</mat-error>
+    
+    </div>
+    <div class="dialog-footer">
+    <button mat-raised-button color="primary" (click)="updatePage()" >Edit</button>
+    </div>
+    </form>
+</div>
+</ng-template>
+
+
+<ng-template #callCreateDialog>
+    <div class="mat-dialog-container">
+      <div class="dialog-header">
+        <h2>Add Home</h2>
+      </div>
+    
+      <form class="example-container" [formGroup]="form">
+        <mat-form-field appearance="outline">
+        <mat-label>Enter content</mat-label>
+        <textarea matInput type="text" placeholder="Enter content" formControlName="content"></textarea>
+        <mat-error *ngIf="edit.get('content')?.hasError('required')">content is required</mat-error>
+        </mat-form-field>
+        <div class="form-field-spacer"></div>
+        
+        <mat-form-field appearance="outline">
+        <mat-label>Enter phone</mat-label>
+        <input matInput type="text" placeholder="Enter phone" formControlName="phone">
+        <mat-error *ngIf="edit.get('phone')?.hasError('required')">phone is required</mat-error>
+        </mat-form-field>
+        
+        <div class="form-field-spacer"></div>
+        <mat-form-field appearance="outline">
+            <mat-label>Enter email</mat-label>
+            <input matInput type="text" placeholder="Enter email" formControlName="email">
+            <mat-error *ngIf="edit.get('email')?.hasError('required')">email is required</mat-error>
+            </mat-form-field>
+            
+            <div class="form-field-spacer"></div>
+            <mat-form-field appearance="outline">
+                <mat-label>Enter title</mat-label>
+                <input matInput type="text" placeholder="Enter title" formControlName="title">
+                <mat-error *ngIf="edit.get('title')?.hasError('required')">title is required</mat-error>
+                </mat-form-field>
+                
+                <div class="form-field-spacer"></div>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter location</mat-label>
+          <input matInput type="text" placeholder="Enter location" formControlName="location">
+          <mat-error *ngIf="edit.get('location')?.hasError('required')">location is required</mat-error>
+          </mat-form-field>
+        <div class="form-field-spacer"></div>
+        
+        <div>
+            <label for="name">Slide1:</label>
+            
+                  <input type="file"  formControlName="slide1"    #slide1   (change)="Slide1(slide1.files)">
+                  <mat-error *ngIf="edit.get('slide1')?.hasError('required')">Slide1 is required</mat-error>
+            
+            </div>
+            <div class="form-field-spacer"></div>
+        
+            <div>
+                <label for="name">Slide2:</label>
+                
+                      <input type="file"  formControlName="slide2"    #slide2   (change)="Slide2(slide2.files)">
+                      <mat-error *ngIf="edit.get('slide2')?.hasError('required')">Slide2 is required</mat-error>
+                
+                </div>
+                <div class="form-field-spacer"></div>
+        
+                <div>
+                    <label for="name">Slide3:</label>
+                    
+                          <input type="file"  formControlName="slide3"    #slide3   (change)="Slide3(slide3.files)">
+                          <mat-error *ngIf="edit.get('slide3')?.hasError('required')">Slide3 is required</mat-error>
+                    
+                    </div>
+        <div class="form-field-spacer"></div>
+        
+        <div>
+        <label for="name">Logo:</label>
+        
+        <input  type="file"  formControlName="logo"    #logo   (change)="Logo(logo.files)">
+        <mat-error *ngIf="edit.get('logo')?.hasError('required')">logo is required</mat-error>
+        
+        </div>
+        <div class="dialog-footer">
+        <button mat-raised-button color="primary" (click)="addPage()" >Add</button>
+        </div>
+        </form>
+    </div>
+  </ng-template>

@@ -15,15 +15,88 @@
     border-radius: 60px;
     background-color: #5bc1ac ;
   }
-  .rounded-circle
-  {
-    max-width: 100px;
-    max-height: 200px;
-    width: auto;
-    height: auto;  }
+
   .fit-image {
     max-width: 100px;
     max-height: 100px;
     width: auto;
     height: auto;
   }
+
+  .rounded-circle {
+    max-width: 100px;
+    max-height: 197px;
+    width: 164px;
+    height: 165px;
+
+}
+.email {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  font-family: Roboto, sans-serif;
+  letter-spacing: .009375em;
+  margin: 0px -33px 16px;
+}
+.profile {
+  margin-top: -137px;
+}
+
+.edit{
+  position: absolute;
+  top: 192px;
+  left: 108px;
+  padding: 4px 8px;
+  border-radius: 11px;
+}
+.button-check {
+  background-color: #5e72e4;
+  padding: 6px;
+  font-size: 12px;
+  width: 35px;
+  height: 35px;
+}
+
+.icon-input-container {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mat-icon.edit {
+  font-size: 24px; /* Adjust the font size as needed */
+  color: #007bff; /* Set the color of the icon as per your design */
+  margin-right: 10px; /* Add spacing between the icon and input */
+}
+
+
+.mat-dialog-container {
+  padding: 24px;
+  width: 400px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.dialog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.dialog-header h2 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333333;
+}
+
+.example-container {
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 50%;
+  margin-bottom: 1px;
+}

@@ -5,7 +5,6 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { UserService } from 'src/app/service/user.service';
 import { CategoriesService } from 'src/app/service/categories.service';
-import * as Aos from 'aos';
 import { CharitiesService } from 'src/app/service/charities.service';
 
 @Component({
@@ -21,7 +20,7 @@ export class CharitiesComponent implements OnInit {
   @ViewChild('callDeleteDailog') callDelete!:TemplateRef<any>
 
   map!: google.maps.Map;
-
+  google: any;
   Charities: any[] = [];
   categories: any[] = [];
   profile: any[] = [];
@@ -32,14 +31,14 @@ isLinear = false;
 
   constructor(private charitiesService: CharitiesService, private userService: UserService,private toastr: ToastrService,private categoriesService:CategoriesService,private dialog:MatDialog ) { }
   ngOnInit() {
-    Aos.init({disable: 'mobile'});//AOS - 2
-    Aos.refresh();
+ 
     this.getCategories();
     this.getCharities();
     this.getProfile();
 
     this.initMap();
-    
+    this.loadMapScript();
+
     }
   
   getCategories() {
@@ -171,32 +170,34 @@ isLinear = false;
       this.Charities = Charities;
     });
   }
+  loadMapScript() {
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+
+    script.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAGTMxtpMfSs1CP-y1lTLbjqwsD9KHgd2U';
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      this.initMap();
+    };
+    document.head.appendChild(script);
+  }
 
 
   initMap() {
     const mapElement = document.getElementById("map-container");
     if (mapElement !== null) {
-      const mapOptions: google.maps.MapOptions = {
+      const mapOptions = {
         center: { lat: 0, lng: 0 },
         zoom: 2,
       };
-      this.map = new google.maps.Map(mapElement, mapOptions);
-
-      // Add markers for each charity on the map
-      this.Charities.forEach((charity) => {
-        const marker = new google.maps.Marker({
-          position: { lat: 0, lng: 0 },
-          map: this.map,
-          title: charity.charityname,
-        });
+      const map = new google.maps.Map(mapElement, mapOptions);
 
      
-      });
     } else {
       console.error("Element with ID 'map-container' not found.");
     }
   }
-
   addCharity(){
     const user = localStorage.getItem('user');
     if (user !== null) {

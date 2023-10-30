@@ -33,9 +33,16 @@ export class CharitiesComponent implements OnInit  {
   @Input() charityId: any;
     userId: any;
   _filterText:string='';
-  progressValue: Observable<number> | undefined;
+  progressValue: any;
   totalDonation: number = 10;
-  
+  totalprice: any// Replace 1000 with your actual total price
+currentPrice: number = 0;
+
+showSearchForm: boolean = false;
+
+toggleSearchForm() {
+  this.showSearchForm = !this.showSearchForm;
+}
   constructor(private router: Router,  private userService: UserService,private toastr: ToastrService,private charitiesService:CharitiesService,private categoriesService:CategoriesService, public dialog: MatDialog) { 
 
     
@@ -45,20 +52,10 @@ export class CharitiesComponent implements OnInit  {
     this.loadAcceptedCharities();
     this.getCategories();
     this.getcharities();
-    this.updateProgress();
 
   }
-  updateProgress() {
-    this.progressValue = this.getcharities().pipe(
-      map(totalPrice => {
-        if (totalPrice > 0) {
-          return (totalPrice / 100) * 25;
-        } else {
-          return 0;
-        }
-      })
-    );
-  }
+
+
   
   getCategories() {
     this.categoriesService.getCategories().subscribe((categories) => {

@@ -19,12 +19,13 @@ export class RegisterComponent implements OnInit{
  
   registerForm :FormGroup = new FormGroup({
 
-    username: new FormControl(['', Validators.required]),
-    email:new FormControl( ['', [Validators.required, ]]),
-    password:new FormControl( ['', [Validators.required, Validators.minLength(8), ]]),
-    repeatPassword: new FormControl(['', [Validators.required, Validators.minLength(8), ]]),
+    username: new FormControl('', Validators.required),
+    email:new FormControl( '', [Validators.required, ]),
+    password:new FormControl( '', [Validators.required, Validators.minLength(8), ]),
+    repeatPassword: new FormControl('', [Validators.required, Validators.minLength(8) ]),
     
   })
+
   matchError() {
     if (this.registerForm.controls['password'].value === this.registerForm.controls['repeatPassword'].value) {
       this.registerForm.controls['repeatPassword'].setErrors(null);
@@ -40,6 +41,7 @@ export class RegisterComponent implements OnInit{
 
       this.toastr.success('User Added successfully.', 'Success');
       this.router.navigate(['auth/login']);
+        this.registerForm.reset();
 
 
     },err=>{

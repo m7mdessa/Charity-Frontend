@@ -17,7 +17,8 @@ import {MatStepperModule} from '@angular/material/stepper';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatToolbarModule} from '@angular/material/toolbar';
-
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
@@ -45,8 +46,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
      MatSidenavModule,
     MatMenuModule,
      MatGridListModule,
-     MatToolbarModule
-
+     MatToolbarModule,
+     MatDatepickerModule,
+     MatNativeDateModule,
   ],
   exports:[
     NavbarComponent,
@@ -65,7 +67,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   MatSidenavModule,
    MatMenuModule,
    MatGridListModule,
-   MatToolbarModule
+   MatToolbarModule,
+   MatDatepickerModule,
+   MatNativeDateModule,
   ]
 })
 export class SharedModule { }

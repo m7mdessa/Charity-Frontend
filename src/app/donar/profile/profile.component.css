@@ -24,11 +24,22 @@
   }
 
   .rounded-circle {
-    max-width: 100px;
-    max-height: 197px;
-    width: 164px;
-    height: 165px;
+    width: 152px;
+    height: 152px;
+}
 
+
+.profile-page .card-profile .card-profile-image {
+  top: -109px;
+  position: absolute;
+  right: -256px;
+  
+}
+.text-center {
+  text-align: center !important;
+  position: relative;
+  right: -384px;
+  top: -32px;
 }
 .email {
   font-size: 16px;

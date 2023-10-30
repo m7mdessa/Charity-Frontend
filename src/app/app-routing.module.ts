@@ -8,12 +8,13 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { DonarModule } from './donar/donar.module';
 import { CharitiesComponent } from './charities/charities.component';
+import { AutherizationGuard } from './autherization.guard';
 
 const routes: Routes = [
 
-  {path:'admin', loadChildren:()=>AdminModule},
+  {path:'admin', loadChildren:()=>AdminModule, canActivate:[AutherizationGuard]},
 
-  {path:'user', loadChildren:()=>DonarModule},
+  {path:'user', loadChildren:()=>DonarModule, canActivate:[AutherizationGuard]},
 
   {path:'auth', loadChildren:()=>AuthModule},
 

@@ -1,10 +1,35 @@
 .featured-block {
-    text-align: center;
+  text-align: center;
+  transition: all 1.5s ease;
+  min-height: 161px;
+  padding: inherit;
+  position: absolute;
+  left: 1040px;
+  top: 312px;
+
+  }
+.featured-bloc {
+  text-align: center;
+  transition: all 1.5s ease;
+  min-height: 161px;
+  padding: inherit;
+ 
+}
+.mb{
+  text-align: center;
     transition: all 1.5s ease;
     min-height: 161px;
     padding: inherit;
+    position: absolute;
+    left: 1040px;
+    top: 265px;
 }
 
+.search-form {
+  position: absolute;
+  left: 1035px;
+  top: 183px;
+}
 .btn-custom {
     background-color:   #fbf9ff; /* Change to your desired color */
     color: #2e2e2e;
@@ -45,3 +70,14 @@
     width: 50%;
     margin-bottom: 1px;
   }
+
+  .catrgory{
+    position: absolute;
+    left: 0;
+  
+  }
+  .category-block {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    text-align: left;
+}

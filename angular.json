@@ -42,7 +42,6 @@
               "node_modules/swiper/swiper-bundle.min.js",
               "src/assets/userAssets/js/jquery.min.js",
               "src/assets/userAssets/js/jquery.sticky.js",
-              "src/assets/userAssets/js/click-scroll.js",
               "src/assets/userAssets/js/counter.js",
               "src/assets/userAssets/js/custom.js"
         

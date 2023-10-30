@@ -28,8 +28,10 @@ export class AdminService {
     return this.http.get<any[]>('https://localhost:7091/api/Admin/MaxCharityCategory');
   }
 
-  searchBetweenDates(sareach: any): Observable<any[]> {
-    return this.http.post<any[]>(`https://localhost:7091/api/Admin/SerchBetweenDates`, sareach);
+  searchBetweenDates(dateFrom: string, dateTo: string): Observable<any[]> {
+  
+    const url = `https://localhost:7091/api/Admin/SearchBetweenDates/${dateFrom},${dateTo}`;
+    return this.http.post<any[]>(url, null);
   }
 
   getReports(): Observable<any[]> {

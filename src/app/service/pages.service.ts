@@ -23,22 +23,47 @@ export class PagesService {
   }
 
 
-  addPage(Page: any): Observable<any>{
-    Page.slide1 = this.upload_Slide1;
-    Page.slide2 = this.upload_Slide2;
-    Page.slide3 = this.upload_Slide3;
-    Page.logo = this.upload_logo;
+  addHomePage(homePage: any): Observable<any>{
+    homePage.slide1 = this.upload_Slide1;
+    homePage.slide2 = this.upload_Slide2;
+    homePage.slide3 = this.upload_Slide3;
+    homePage.logo = this.upload_logo;
 
-    return  this.http.post('https://localhost:7091/api/Pages',Page);
+    return  this.http.post('https://localhost:7091/api/Pages/homePage',homePage);
  
   }
-  updatePage(Page: any): Observable<any> {
-    Page.slide1 = this.upload_Slide1;
-    Page.slide2 = this.upload_Slide2;
-    Page.slide3 = this.upload_Slide3;
-    Page.logo = this.upload_logo;
 
-    return this.http.put('https://localhost:7091/api/Pages/',Page);
+  updateHomePage(homePage: any): Observable<any> {
+    homePage.slide1 = this.upload_Slide1;
+    homePage.slide2 = this.upload_Slide2;
+    homePage.slide3 = this.upload_Slide3;
+    homePage.logo = this.upload_logo;
+
+    return this.http.put('https://localhost:7091/api/Pages/homePage/',homePage);
+
+  }
+
+  addAboutPage(aboutPage: any): Observable<any>{
+    aboutPage.slide1 = this.upload_Slide1;
+
+    return  this.http.post('https://localhost:7091/api/Pages/aboutPage/',aboutPage);
+ 
+  }
+
+  updateAboutPage(aboutPage: any): Observable<any> {
+    aboutPage.slide1 = this.upload_Slide1;
+    return this.http.put('https://localhost:7091/api/Pages/aboutPage/',aboutPage);
+
+  }
+
+  addContactPage(contactPage: any): Observable<any>{
+
+    return  this.http.post('https://localhost:7091/api/Pages/contactPage',contactPage);
+ 
+  }
+
+  updateContactPage(contactPage: any): Observable<any> {
+    return this.http.put('https://localhost:7091/api/Pages/contactPage',contactPage);
 
   }
 

@@ -47,13 +47,7 @@ export class AuthService {
       localStorage.setItem('token', responce.token);
       
       let data: any = jwt_decode(responce.token);
-  console.log(data)
-  const UserId = data.UserId;
-  this.userService.setUserTokenData(data);
-  this.usersService.setUserTokenData(data);
-
-  console.log('User ID:', this.getUserId(UserId));
-
+ 
       localStorage.setItem('user', JSON.stringify(data));
   
       if (data.Role == "1") {
@@ -69,14 +63,7 @@ export class AuthService {
     });
   }
   
-  getUserId(UserId:any) {
-    
-    console.log('User ID:', this.UserId);
 
-    return UserId;
-
-
-  }
 
   Forgotpassword(Forgotpassword: any): Observable<any>{
 

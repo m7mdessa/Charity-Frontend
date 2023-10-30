@@ -25,30 +25,19 @@
             <div class="col-lg-3 order-lg-2">
               <div class="card-profile-image">
                 <a href="javascript:void(0)">
-                  <img src="../../assets/img/{{profile.image}}" class="rounded-circle">
+                  <img src="assets/img/{{profile.image}}" class="rounded-circle">
                 </a>
               </div>
             </div>
-            <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+        
+            <div class="col-lg-10 order-lg-1">
               <div class="card-profile-actions py-4 mt-lg-0">
-                <a href="javascript:void(0)" class="btn btn-sm btn-info mr-4"(click)="openEditDailog()">Connect</a>
-                <a href="javascript:void(0)" class="btn btn-sm btn-default float-right">Message</a>
-              </div>
-            </div>
-            <div class="col-lg-4 order-lg-1">
-              <div class="card-profile-stats d-flex justify-content-center">
-                <div>
-                  <span class="heading">22</span>
-                  <span class="description">Friends</span>
-                </div>
-                <div>
-                  <span class="heading">10</span>
-                  <span class="description">Photos</span>
-                </div>
-                <div>
-                  <span class="heading">89</span>
-                  <span class="description">Comments</span>
-                </div>
+                  <a  class="btn btn-sm btn-info mr-4"(click)="openEditDailog()"><mat-icon>edit</mat-icon></a>
+                  <a routerLink="/user/Donations"class="btn btn-sm btn-info mr-4">Donations</a>
+                  <a routerLink="/user/Issues" class="btn btn-sm btn-info mr-4">Issues</a>
+                  <a routerLink="/user/Testimonial" class="btn btn-sm btn-info mr-4">Testimonial</a>
+                  <a routerLink="/user/Charities" class="btn btn-sm btn-info mr-4">Charities</a>
+              
               </div>
             </div>
           </div>
@@ -59,13 +48,7 @@
             <div class="h6 font-weight-300"><i class="ni location_pin mr-2"></i>{{profile.email }}</div>
        
           </div>
-          <div class="mt-5 py-5 border-top text-center">
-            <div class="row justify-content-center">
-              <div class="col-lg-9">
-               
-              </div>
-            </div>
-          </div>
+       
         </div>
       </div>
     </div>

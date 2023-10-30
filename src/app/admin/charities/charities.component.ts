@@ -17,7 +17,7 @@ export class CharitiesComponent implements OnInit {
   display_image: any;
   upload_Image: any;
 
-  
+  filteredCharities: any[] = [];
 
     constructor( private cdr: ChangeDetectorRef,  private charitiesService: CharitiesService, private adminService:AdminService, private toastr: ToastrService) {
  }
@@ -51,7 +51,20 @@ export class CharitiesComponent implements OnInit {
   
       });
     }
-   
+    searchBetweenDates(dateFrom: string, dateTo: string) {
+      this.adminService.searchBetweenDates(dateFrom, dateTo).subscribe(
+        (resp: any) => {
+          this.toastr.success('Charity Added successfully.', 'Success');
+        },
+        (err) => {
+          this.toastr.error('Something went wrong !!', 'Error');
+        }
+      );
+    }
+    
+    
+ 
+    
     
    
 

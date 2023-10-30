@@ -15,3 +15,36 @@ nav {
     top: 0;
     width: 100%;
   }
+  .notifications{
+
+  }
+
+  .rounded-circle {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 7px;
+}
+.example-icon {
+  position: relative;
+  left: 1000px;}
+
+.logo {
+  flex: 1 1 auto;
+  position: absolute;
+  left: 275px;
+}
+.menu{
+  margin: 14px;
+    position: absolute;
+    left: 500px;
+}
+.menu .li{
+  margin: 14px;
+    position: absolute;
+    left: 500px;
+}
+
+.custom{
+
+}

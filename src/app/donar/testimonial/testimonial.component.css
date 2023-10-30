@@ -48,3 +48,28 @@
   ::ng-deep .mat-form-field-appearance-fill .mat-form-field-subscript-wrapper .mat-error {
     color: #ff0000; /* Red color for error message */
   }
+  
+  .rounded-circle {
+    width: 152px;
+    height: 152px;
+}
+.button {
+  background-color: rgb(73, 73, 73);
+  padding: 6px;
+  font-size: 12px;
+  width: 35px;
+  height: 35px;
+  }
+  .add-button {
+    background-color: green;
+    position: absolute;
+    height: 35px;
+    width: 35px; 
+    top: 35px;
+ 
+  }
+  .mat-icon{
+    color: #fff;
+    background: none;
+    
+    }

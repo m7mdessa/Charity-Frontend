@@ -112,8 +112,11 @@ width: 35px;
 height: 35px;
 }
 .add-button {
-background-color: green;
-
+  background-color: green;
+  position: absolute;
+  height: 35px;
+  width: 35px; 
+  top: 21px;
 }
 .demo-section + .demo-section {
 margin-top: 16px;
@@ -127,4 +130,21 @@ background-color: #5bc1ac;
   width: 164px;
   height: 165px;
 
+}
+
+.profile-page .card-profile .card-profile-image {
+  top: -109px;
+  position: absolute;
+  right: -256px;
+  
+}
+.text-center {
+  text-align: center !important;
+  position: relative;
+  right: -384px;
+  top: -32px;
+}
+.Charity{
+  position: relative;
+  margin-bottom: 72px;
 }

@@ -41,15 +41,17 @@
                 <a routerLink="/user/Testimonial" class="btn btn-sm btn-info mr-4">Testimonials</a>
                 <a routerLink="/user/Profile" class="btn btn-sm btn-info mr-4">Profile</a>
                 <a routerLink="/user/Charities" class="btn btn-sm btn-info mr-4">Charities</a>
-                <a (click)="OpenDialogTestimonial()"class="btn btn-sm btn-info mr-4">Add Testimonial</a>
-
+                <a> 
+                  <button mat-fab color="primary"class="add-button"(click)="OpenDialogTestimonial()" aria-label="Example icon button with a delete icon">
+                      <mat-icon>add</mat-icon>
+                  </button>
+                </a>
               </div>
             </div>
             <div class="container">
               <div class="row">
   
                   <div class="col-lg-8 col-12 mx-auto">
-                      <h2 class="mb-lg-3">Happy customers</h2>
   
                       <div id="testimonial-carousel" class="carousel carousel-fade slide" data-bs-ride="carousel">
   
@@ -58,8 +60,8 @@
                                   <div class="carousel-caption">
                                       <h4 class="carousel-title">{{ testimonial.testimonial }}</h4>
   
-                                      <small class="carousel-name"><span class="carousel-name-title">{{ testimonial.username }}</span>,
-                                          Boss</small>
+                                      <small class="carousel-name"><span class="carousel-name-title">{{ testimonial.username }}</span>
+                                          </small>
                                   </div>
                               </div>
   
@@ -68,7 +70,8 @@
                                       <img src="../../assets/img/{{ testimonial.image }}"
                                           class="img-fluid rounded-circle avatar-image" alt="avatar">
                                   </li>
-  
+                                 
+                             
                                 
                               </ol>
   

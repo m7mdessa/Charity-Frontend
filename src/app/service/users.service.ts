@@ -6,17 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class UsersService {
-  private userTokenData: any = null;
 
   constructor(private http: HttpClient) { }
 
-  setUserTokenData(data: any) {
-    this.userTokenData = data;
-  }
-
-  getUserTokenData(): any {
-    return this.userTokenData;
-  }
+  
 
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>('https://localhost:7091/api/Users');

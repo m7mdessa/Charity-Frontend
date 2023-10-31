@@ -151,4 +151,14 @@ tbody[_ngcontent-ng-c3651064617], td[_ngcontent-ng-c3651064617], tfoot[_ngconten
   .button-container {
     text-align: center;
   }
-  
+  .img-fluid {
+    width: 100px;
+    height: auto;
+}
+.img{
+  width: 100px;
+  height: auto;
+  position: relative;
+  left: 29px;
+  top: 38px;
+}

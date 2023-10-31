@@ -1,90 +1,75 @@
 
 <app-navbar></app-navbar>
 
-
 <section class="contact-section section-padding" id="section_6">
-    <div class="container">
+  <div class="container">
+      <div class="row">
 
-            <div class="col-lg-4 col-12 ms-auto mb-5 mb-lg-0">
-                <div class="contact-info-wrap">
-                    <h2>Get in touch</h2>
+          <div class="col-lg-4 col-12 ms-auto mb-5 mb-lg-0">
+              <div class="contact-info-wrap">
+                  <h2>Get in touch</h2>
 
-                    <div class="contact-image-wrap d-flex flex-wrap">
-                        <img src="images/avatar/pretty-blonde-woman-wearing-white-t-shirt.jpg"
-                            class="img-fluid avatar-image" alt="">
+               
+                  <div class="contact-info">
+                      <h3 class="mb-3">Contact Infomation</h3>
 
-                        <div class="d-flex flex-column justify-content-center ms-3">
-                            <p class="mb-0">Clara Barton</p>
-                            <p class="mb-0"><strong>HR & Office Manager</strong></p>
-                        </div>
-                    </div>
+                      <p class="d-flex mb-2">
+                          <i class="bi-geo-alt me-2"></i>
+                          Akershusstranda 20, 0150 Oslo, Norway
+                      </p>
 
-                    <div class="contact-info">
-                        <h5 class="mb-3">Contact Infomation</h5>
+                      <p class="d-flex mb-2">
+                          <i class="bi-telephone me-2"></i>
 
-                        <p class="d-flex mb-2">
-                            <i class="bi-geo-alt me-2"></i>
-                            Akershusstranda 20, 0150 Oslo, Norway
-                        </p>
+                          <a href="tel: 305-240-9671">
+                              305-240-9671
+                          </a>
+                      </p>
 
-                        <p class="d-flex mb-2">
-                            <i class="bi-telephone me-2"></i>
+                      <p class="d-flex">
+                          <i class="bi-envelope me-2"></i>
 
-                            <a href="tel: 305-240-9671">
-                                305-240-9671
-                            </a>
-                        </p>
+                          <a href="mailto:info@yourgmail.com">
+                              donate@charity.org
+                          </a>
+                      </p>
 
-                        <p class="d-flex">
-                            <i class="bi-envelope me-2"></i>
-
-                            <a href="mailto:info@yourgmail.com">
-                                donate@charity.org
-                            </a>
-                        </p>
-
-                        <a href="#" class="custom-btn btn mt-3">Get Direction</a>
-                    </div>
-                </div>
-            </div>
-
-    </div>
-</section>
-<section class="section section-lg pt-lg-0 section-contact-us">
-    <div class="container">
-      <div class="row justify-content-center mt--300">
-        <div class="col-lg-8">
-          <div class="card bg-gradient-secondary shadow">
-            <div class="card-body p-lg-5">
-              <h4 class="mb-1">Want to work with us?</h4>
-              <p class="mt-0">Your project is very important to us.</p>
-              <div class="form-group mt-5" [ngClass]="{'focused':focus===true}">
-                <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-user-run"></i></span>
+                      <a href="#" class="custom-btn btn mt-3">Get Direction</a>
                   </div>
-                  <input class="form-control" placeholder="Your name" type="text" (focus)="focus=true" (blur)="focus=false">
-                </div>
               </div>
-              <div class="form-group" [ngClass]="{'focused':focus1===true}">
-                <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                  </div>
-                  <input class="form-control" placeholder="Email address" type="email" (focus)="focus1=true" (blur)="focus1=false">
-                </div>
-              </div>
-              <div class="form-group mb-4">
-                <textarea class="form-control form-control-alternative" name="name" rows="4" cols="80" placeholder="Type a message..."></textarea>
-              </div>
-              <div>
-                <button type="button" class="btn btn-default btn-round btn-block btn-lg">Send Message</button>
-              </div>
-            </div>
           </div>
-        </div>
+
+          <div class="col-lg-6 col-12 mx-auto">
+              <form class="custom-form contact-form" [formGroup]="addContact">
+                  <h2>Contact form</h2>
+
+                 
+                  <div class="row">
+                      <div class="col-lg-6 col-md-6 col-12">
+                          <input type="text" formControlName="contactname" id="first-name" class="form-control"
+                              placeholder="Name" required>
+                      </div>
+
+                      <div class="col-lg-6 col-md-6 col-12">
+                          <input type="text" formControlName="subject" id="last-name" class="form-control"
+                              placeholder="Subject" required>
+                      </div>
+                  </div>
+                  <input type="text" name="phone" id="email" formControlName="phone" class="form-control"
+                  placeholder="Phone" required>
+
+                  <input type="email" name="email" id="email" formControlName="email"pattern="[^ @]*@[^ @]*" class="form-control"
+                      placeholder="Email" required>
+
+                  <textarea  rows="5" formControlName="message" class="form-control" id="message"
+                      placeholder="Message"></textarea>
+
+                  <button type="submit" class="form-control" (click)="addMessage()"[disabled]="!addContact.valid" >Send Message</button>
+              </form>
+          </div>
+
       </div>
-    </div>
-  </section>
+  </div>
+</section>
   
 <app-footer></app-footer>

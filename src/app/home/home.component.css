@@ -1,116 +1,16 @@
-@media (min-width: 768px){
-    .section-custom {
-        padding-bottom: 0;
-    }}
-    @media (min-width: 992px){
-    .section-lg {
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }}
-    @media (min-width: 768px){
-    .section-sm, .section-md, .section-lg, .section-xl {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }}
-    .section-xs, .section-sm, .section-md, .section-lg, .section-xl {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-    .bg-image-1 {
-        background-image: url(https://livedemo00.template-help.com/wt_prod-10969/images/bg-image-1.jpg);
-    }
-    .bg-image {
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-    }
-    
-    
-    .rd-navbar-nav {
-        font-weight: 400;
-    }
-    ul, ol {
-        list-style: none;
-        padding: 0;
-        
-    }
-    .rd-navbar-static .rd-navbar-inner {
-        max-width: 1800px;
-    }
-    
-    .rd-navbar-static .rd-navbar-inner, .rd-navbar-fullwidth .rd-navbar-inner {
-        position: relative;
-        margin-left: auto;
-        margin-right: auto;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-    
-    user agent stylesheet
-    div {
-        display: block;
-    }
-    .rd-navbar {
-        display: none;
-        font-size: 16px;
-        line-height: 1;
-    }
-    .page-header {
-        padding: 0;
-        margin: 0;
-        border-bottom: none;
-    }
-    .page-header {
-        padding-bottom: 9px;
-        margin: 40px 0 20px;
-        border-bottom: 1px solid #eeeeee;
-    }
-    article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-        display: block;
-    }
-
-    
-    .containerhome {
-        width: 98%;
-        margin: 0 auto;
-        margin-top: 40px;
-        }
-        .card{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-evenly;
-        flex-wrap: wrap;
-        }
 
 
-        .containerFeed {
-            width: 100%;
-            margin: 0 auto;
-            margin-top: 40px;
-            }
-            .cardFeed{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            flex-wrap: wrap;
-            }
-            .example-card {
-                max-width: 400px;
-              }
-              
-              .example-header-image {
-                background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-                background-size: cover;
-              }
-              .parent-container {
-                overflow: hidden;
-              }
-              .swiper-container {
-                height: 400px; /* Adjust the height as needed */
-              }.centered-swiper {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                height: 100vh; /* Set the height to 100% of the viewport height, adjust as needed */
-              }
+h1 {
+    font-size: var(--h1-font-size);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: -2px;
+    color: #5a6f80;
+}
+h2 {
+    color: var(--secondary-color);
+    font-size: var(--h2-font-size);
+    letter-spacing: -2px;
+}
+.mb-5 {
+    margin-bottom: 3rem!important;
+}

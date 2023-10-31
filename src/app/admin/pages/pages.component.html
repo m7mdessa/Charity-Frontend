@@ -28,32 +28,44 @@
       <br>
 
       <div class="row pages">
-        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0" *ngFor="let page of home">
+        <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0" *ngFor="let home of home">
         
          
                             <div class="card card-lift--hover shadow featured-block d-flex justify-content-center align-items-center">
                               <a class="close">        
-                                <button mat-fab aria-label="Example icon button with a delete icon"(click)="openDeleteDailog(page.id)"class="button">
+                                <button mat-fab aria-label="Example icon button with a delete icon"(click)="openDeleteDailog(home.id)"class="button">
                                   <mat-icon>close</mat-icon>
                                 </button>
                                 
                               </a>
                                  <a class="edit">        
-                                     <button mat-fab aria-label="Example icon button with a delete icon" (click)="openEditHomeDailog(page)"class="button-check">
+                                     <button mat-fab aria-label="Example icon button with a delete icon" (click)="openEditHomeDailog(home)"class="button-check">
                                       <mat-icon>edit</mat-icon>
                                    </button>
                                                   
                                  </a>
 
                               <div class="custom-block">
-                                  <img src="../../assets/img/{{page.slide1}}" class="custom-block-image img-fluid" alt="">
-              
+                                <div class="row">
+
+                                  <img src="../../assets/img/{{home.slide1}}" class="custom-block-image img-fluid img" alt="">
+
+                                  <img src="../../assets/img/{{home.slide2}}" class="custom-block-image img-fluid img" alt="">
+
+                                  <img src="../../assets/img/{{home.slide3}}" class="custom-block-image img-fluid img" alt="">
+
+                                  <img src="../../assets/img/{{home.logo}}" class="custom-block-image img-fluid img" alt="">
+                                  </div>
+
                                   <div class="custom-block-body">
                                       
-                                      <h3 class="mb-3">{{page.charityname }}</h3>
+                                      <h3 class="mb-3">{{home.title }}</h3>
               
-                                      <p>{{page.mission }}</p>
-              
+                                      <p>{{home.content }}</p>
+                                      <p>{{home.email }}</p>
+                                      <p>{{home.phone }}</p>
+                                      <p>{{home.location }}</p>
+
                                   
                                       </div>
               
@@ -384,11 +396,12 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Content</mat-label>
-          <input matInput type="text" placeholder="Enter Content" formControlName="content">
+          <textarea matInput type="text" placeholder="Enter Content" formControlName="content" ></textarea>
+
         </mat-form-field>
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <textarea matInput type="text" placeholder="Enter Email" formControlName="email" ></textarea>
+          <input matInput type="text" placeholder="Enter Email" formControlName="email">
 
         </mat-form-field>
       <mat-form-field appearance="outline">
@@ -444,7 +457,7 @@
           </div>
         <div>
           <button mat-button matStepperPrevious>Back</button>
-          <button mat-button (click)="updateHomePage()"[disabled]="!editHome.valid" >Add</button>
+          <button mat-button (click)="updateHomePage()"[disabled]="!editHome.valid" >Edit</button>
         </div>
       </form>
     </mat-step>
